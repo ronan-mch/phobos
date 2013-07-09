@@ -9,6 +9,10 @@ gem 'mysql2'
 gem "umlaut", :path => 'C:\Users\romc\Documents\GitHub\umlaut'
 gem "httpclient", "~> 2.3.3"
 
+group :development, :test do
+  gem 'ruby-prof'
+  gem 'test-unit'
+end
 
 
 # Gems used only for assets and not required
