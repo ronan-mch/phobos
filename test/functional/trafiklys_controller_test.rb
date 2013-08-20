@@ -9,33 +9,33 @@ class TrafiklysControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # Brugeren er ikke logget ind, ipen har ikke remote adgang, men der er walkin adgang.
-  # Svaret er derfor "maybe".
+  # ipen har ikke remote adgang, derfor er walkin adgang false.
+  # Brugeren er ikke logget ind. Svaret er derfor "maybe".
   test 'should get maybe' do
     get :look_up, {:open_url => OPEN_URL, :ip_address => '10.22', :format => 'json'}
     assert_response :success
     response = MultiJson.load(@response.body)
 
-    assert_equal('true', response['trafiklys']['response']['walkinAccess'])
+    assert_equal('false', response['trafiklys']['response']['walkinAccess'])
     assert_equal('false', response['trafiklys']['response']['remoteAccess'])
     assert_equal('maybe', response['trafiklys']['response']['access'])
   end
 
   # Brugeren er logget ind, ipen har ikke remote adgang, men instituttet har adgang.
-  # Remote adgang og adgang er derfor "yes".
+  # Remote adgang og adgang er derfor "yes". Walkin adgang er false.
   test 'should_get_yes_inst' do
     get :look_up, {:open_url => OPEN_URL, :ip_address => '10.22',
                    :institute => 'KB', :format => 'json'}
 
     response = MultiJson.load(@response.body)
 
-    assert_equal('true', response['trafiklys']['response']['walkinAccess'])
+    assert_equal('false', response['trafiklys']['response']['walkinAccess'])
     assert_equal('true', response['trafiklys']['response']['remoteAccess'])
     assert_equal('yes', response['trafiklys']['response']['access'])
   end
 
-  # Brugeren er ikke logget ind men ipen har remote adgang.
-  # Adgang og remote adgang er derfor "yes".
+  # Brugeren er ikke logget ind men ipen har walkin adgang.
+  # Adgang er derfor "yes".
   test 'should_get_yes_ip' do
     get :look_up, {:open_url => OPEN_URL, :ip_address => '10.226.6.0',
                    :format => 'json'}
@@ -43,11 +43,11 @@ class TrafiklysControllerTest < ActionController::TestCase
     response = MultiJson.load(@response.body)
 
     assert_equal('true', response['trafiklys']['response']['walkinAccess'])
-    assert_equal('true', response['trafiklys']['response']['remoteAccess'])
+    assert_equal('false', response['trafiklys']['response']['remoteAccess'])
     assert_equal('yes', response['trafiklys']['response']['access'])
   end
 
-  # Brugeren er logget ind, ipen har ikke remote adgang, men der er walkin adgang.
+  # Brugeren er logget ind, ipen har ikke walkin adgang,
   # Adgang er derfor "no".
   test 'should_get_no' do
     get :look_up, {:open_url => OPEN_URL, :ip_address => '10.226',
@@ -55,7 +55,7 @@ class TrafiklysControllerTest < ActionController::TestCase
 
     response = MultiJson.load(@response.body)
 
-    assert_equal('true', response['trafiklys']['response']['walkinAccess'])
+    assert_equal('false', response['trafiklys']['response']['walkinAccess'])
     assert_equal('false', response['trafiklys']['response']['remoteAccess'])
     assert_equal('no', response['trafiklys']['response']['access'])
   end
