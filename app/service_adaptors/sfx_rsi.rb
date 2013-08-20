@@ -18,11 +18,19 @@ class SfxRsi < Service
     super
   end
 
+  #for multiple calls - reset the values to nil before
+  #recalling
+  def reset
+    @ip, @institute, @message, @fulltext_found, @status_ok = nil
+  end
+
   def handle(request)
     data = get_data(request)
     query = build_query(data)
     response = send_query(query)
+    Rails.logger.debug(query)
     process_response(response)
+    Rails.logger.debug(response)
 
     request.dispatched(self, @status_ok)
   end
