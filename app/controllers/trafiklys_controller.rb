@@ -54,6 +54,11 @@ class TrafiklysController < ApplicationController
 
   #create service and parse openUrl
   def init_service
+    # intentionally trigger creation of session if it didn't already exist
+    # because we need to track session ID for caching. Can't find any
+    # way to force session creation without setting a value in session,
+    # so we do this weird one.
+    session[nil] = nil
     @service = SfxRsi.new(ServiceStore.service_definition_for('SFXRSI'))
     #initialize the request using our openUrl
     @user_request ||= PhobosRequest.find_or_create(
