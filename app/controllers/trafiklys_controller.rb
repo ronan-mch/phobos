@@ -4,35 +4,52 @@ class TrafiklysController < ApplicationController
   #take openUrl parameter, parse and query RSI
   def look_up
     init_service
+    get_params
     check_remote_access
     check_walkin_access
     check_access
     write_response
   end
 
-  #if we have an institute && remote access is false
-  # then access is no
-  #if we don't have an institute && remote access is false
-  # and KB_PROXY has access true then access is maybe
-  #otherwise it's no
-  def check_access
-    @access = @remote_access ? 'yes' : 'no'
-    unless @remote_access || !params['institute'].nil?
-      @service.institute="KB_PROXY"
-      @service.handle(@user_request)
-      potential_access = @service.fulltext_found
-      @access = 'maybe' if potential_access
+  def get_params
+    @ip = params['ip_address']
+    if params.has_key?("institute")
+      @logged_in = true
+      @institute = params['institute']
     end
   end
 
-
-  #check for access with our given params
+  #remote access defines access for the user credentials
+  #if user is logged in - check access for their institute
+  #if not - check for access without institute (e.g. open access)
   def check_remote_access
-    @service.ip= params['ip_address']
-    @service.institute= params['institute']
-    #send it out
+    @service.institute= @institute if @logged_in
     @service.handle(@user_request)
     @remote_access = @service.fulltext_found
+  end
+
+  #walkin access defines access for the current user location
+  #remove institute info and send user's ip address
+  def check_walkin_access
+    @service.reset
+    @service.ip= @ip
+    @service.handle(@user_request)
+    @walkin_access = @service.fulltext_found
+  end
+
+  # if we have remote access or walkin access, then we have access
+  # else
+  #   if user is logged in, then access is false  - i.e. we know they don't have access
+  #   if user is not logged in, then access is maybe - i.e. we can't tell if they have access or not
+
+  def check_access
+    if @walkin_access || @remote_access
+      @access = 'yes'
+    elsif @logged_in
+       @access = 'no'
+    else
+      @access = 'maybe'
+    end
   end
 
   #create service and parse openUrl
@@ -46,31 +63,23 @@ class TrafiklysController < ApplicationController
     render_error unless @user_request
   end
 
-  #check for access for KB user
-  #set to true if we have remote access
-  def check_walkin_access
-    @walkin_access = @remote_access
-    unless @remote_access
-      @service.institute="KB"
-      @service.handle(@user_request)
-      @walkin_access = @service.fulltext_found
-    end
-  end
 
+  #build error hash and send to format renderer
   def render_error
     item = {}
     item[:response] = {}
     item[:response][:serviceStatus] = "error_in_request"
     item[:response][:serviceMessage] = "Incorrect parameters - see API docs for full details"
-    #see comment below
+
     format_response({:trafiklys => item})
   end
 
+  #render json if specified in url - else render xml
   def format_response(response_hash)
     @format == 'json' ? render_json(response_hash) : render_xml(response_hash)
   end
 
-  #build response hash and render either xml or json
+  #build response hash and send to format renderer
   def write_response
     item = {}
     item[:response]= {}
@@ -86,6 +95,5 @@ class TrafiklysController < ApplicationController
   def params
     @_params ||= request.parameters
   end
-  def hello
-  end
+
 end
