@@ -171,7 +171,7 @@ default:
         
       # Thomson JCR LAMR api has no api key, but your
       # IP needs to be registered with them. Same registraiton
-      # as for ISI WoK generally. 
+      # as for ISI WoK generally.
       Jcr:
         type: Jcr
         disabled: true
@@ -241,7 +241,15 @@ default:
         # list them in array here:
         #exclude: [ host.unversity.edu, otherhost.somewhere.com]
         
-
+group1:
+  default: false
+  services:
+    SFX:
+      type: Sfx
+      disabled: false
+      display_name: Phobos
+      base_url: http://sfx.kb.dk/sfxtst41
+      priority: 3
 
 group2:
   default: false
