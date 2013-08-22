@@ -27,7 +27,10 @@ class SfxRsi < Service
   def handle(request)
     data = get_data(request)
     query = build_query(data)
-    response = send_query(query)
+    #cache our API responses
+    response = Rails.cache.fetch(Digest::MD5.hexdigest(data.to_s), :expires_in => 1.week) do
+      send_query(query)
+    end
     Rails.logger.debug(query)
     process_response(response)
     Rails.logger.debug(response)
