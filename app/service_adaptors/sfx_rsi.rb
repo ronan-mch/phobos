@@ -47,8 +47,9 @@ class SfxRsi < Service
     data[:identifier][:issn] = get_issn(request.referent)
     data[:identifier][:lccn] = get_lccn(request.referent)
     data[:identifier][:object_id] = metadata['object_id']
-    data[:ip] = @ip || metadata['req:id']
-    data[:year] = metadata['date']
+    data[:ip] = @ip
+    #sometimes year is going to be a range - but rsi only wants 4 digits
+    data[:year] = metadata['date'].nil? ? nil : data[:year][0,4]
     data[:institute_name] = @institute
     #get rid of any empty values
     data[:identifier].delete_if{|key,value| value.nil? || value.empty?}
