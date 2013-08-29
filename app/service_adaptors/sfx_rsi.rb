@@ -49,7 +49,7 @@ class SfxRsi < Service
     data[:identifier][:object_id] = metadata['object_id']
     data[:ip] = @ip
     #sometimes year is going to be a range - but rsi only wants 4 digits
-    data[:year] = metadata['date'].nil? ? nil : data[:year][0,4]
+    data[:year] = metadata['date'] ? metadata['date'][0,4] : nil
     data[:institute_name] = @institute
     #get rid of any empty values
     data[:identifier].delete_if{|key,value| value.nil? || value.empty?}
