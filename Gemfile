@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem "umlaut", :path => 'C:\Users\romc\Documents\GitHub\umlaut'
+gem "umlaut"
 gem "httpclient", "~> 2.3.3"
 
 group :development, :test do
