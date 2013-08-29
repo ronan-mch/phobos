@@ -138,5 +138,6 @@ DEPENDENCIES
   ruby-prof
   sass-rails (~> 3.2.3)
   test-unit
+  therubyracer
   uglifier (>= 1.0.3)
   umlaut
