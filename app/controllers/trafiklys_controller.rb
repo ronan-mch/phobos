@@ -81,7 +81,7 @@ class TrafiklysController < ApplicationController
 
   #render json if specified in url - else render xml
   def format_response(response_hash)
-    @format == 'json' ? render_json(response_hash) : render_xml(response_hash)
+    @format == 'json' ? render_json(response_hash, params[:callback]) : render_xml(response_hash)
   end
 
   #build response hash and send to format renderer

@@ -22,7 +22,7 @@ module FormatWriter
     xml
   end
 
-  def render_json(response)
-    render json: response
+  def render_json(response, callback)
+    render json: response, :callback => callback
   end
 end
