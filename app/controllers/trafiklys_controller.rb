@@ -101,4 +101,8 @@ class TrafiklysController < ApplicationController
     @_params ||= request.parameters
   end
 
+
+  def get_ip
+     render_json({:ip => request.remote_ip}, params[:callback])
+  end
 end

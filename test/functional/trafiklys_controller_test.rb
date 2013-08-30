@@ -60,5 +60,11 @@ class TrafiklysControllerTest < ActionController::TestCase
     assert_equal('no', response['trafiklys']['response']['access'])
   end
 
+  test 'should_get_ip' do
+    get :get_ip
+    response = MultiJson.load(@response.body)
+    assert_equal('0.0.0.0', response['ip'] )
+  end
+
 
 end
