@@ -5,8 +5,6 @@ class TrafiklysController < ApplicationController
   def look_up
     init_service
     get_params
-    check_remote_access
-    check_walkin_access
     check_access
     write_response
   end
@@ -19,31 +17,18 @@ class TrafiklysController < ApplicationController
     end
   end
 
-  #remote access defines access for the user credentials
-  #if user is logged in - check access for their institute
-  #if not - check for access without institute (e.g. open access)
-  def check_remote_access
-    @service.institute= @institute if @logged_in
-    @service.handle(@user_request)
-    @remote_access = @service.fulltext_found
-  end
-
-  #walkin access defines access for the current user location
-  #remove institute info and send user's ip address
-  def check_walkin_access
-    @service.reset
-    @service.ip= @ip
-    @service.handle(@user_request)
-    @walkin_access = @service.fulltext_found
-  end
-
   # if we have remote access or walkin access, then we have access
   # else
   #   if user is logged in, then access is false  - i.e. we know they don't have access
   #   if user is not logged in, then access is maybe - i.e. we can't tell if they have access or not
 
   def check_access
-    if @walkin_access || @remote_access
+
+    @service.ip= @ip
+    @service.institute= @institute if @logged_in
+    @service.handle(@user_request)
+
+    if @service.fulltext_found
       @access = 'access'
     elsif @logged_in
        @access = 'no_access'
@@ -90,8 +75,6 @@ class TrafiklysController < ApplicationController
     item[:availabilityResponse]= {}
     item[:availabilityResponse][:serviceStatus] = @service.status_ok ? "service_ok" : "service_error"
     item[:availabilityResponse][:serviceMessage] = @service.message unless @access
-    item[:availabilityResponse][:walkinAccess] = @walkin_access.to_s
-    item[:availabilityResponse][:remoteAccess] = @remote_access.to_s
     item[:availabilityResponse][:access] = @access
 
     format_response(item)
