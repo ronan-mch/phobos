@@ -44,11 +44,11 @@ class TrafiklysController < ApplicationController
 
   def check_access
     if @walkin_access || @remote_access
-      @access = 'yes'
+      @access = 'access'
     elsif @logged_in
-       @access = 'no'
+       @access = 'no_access'
     else
-      @access = 'maybe'
+      @access = 'need_to_login'
     end
   end
 
@@ -72,9 +72,9 @@ class TrafiklysController < ApplicationController
   #build error hash and send to format renderer
   def render_error
     item = {}
-    item[:response] = {}
-    item[:response][:serviceStatus] = "error_in_request"
-    item[:response][:serviceMessage] = "Incorrect parameters - see API docs for full details"
+    item[:availabilityResponse] = {}
+    item[:availabilityResponse][:serviceStatus] = "error_in_request"
+    item[:availabilityResponse][:serviceMessage] = "Incorrect parameters - see API docs for full details"
 
     format_response({:trafiklys => item})
   end
@@ -87,14 +87,14 @@ class TrafiklysController < ApplicationController
   #build response hash and send to format renderer
   def write_response
     item = {}
-    item[:response]= {}
-    item[:response][:serviceStatus] = @service.status_ok ? "service_ok" : "service_down"
-    item[:response][:serviceMessage] = @service.message unless @access
-    item[:response][:walkinAccess] = @walkin_access.to_s
-    item[:response][:remoteAccess] = @remote_access.to_s
-    item[:response][:access] = @access
+    item[:availabilityResponse]= {}
+    item[:availabilityResponse][:serviceStatus] = @service.status_ok ? "service_ok" : "service_error"
+    item[:availabilityResponse][:serviceMessage] = @service.message unless @access
+    item[:availabilityResponse][:walkinAccess] = @walkin_access.to_s
+    item[:availabilityResponse][:remoteAccess] = @remote_access.to_s
+    item[:availabilityResponse][:access] = @access
 
-    format_response({:trafiklys => item})
+    format_response(item)
   end
 
   def params
