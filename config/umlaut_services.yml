@@ -27,14 +27,14 @@ default:
       SFX:
         type: Sfx
         disabled: false
-        display_name: Find It       
-        base_url: http://sfx.kb.dk/sfxtst41
+        display_name: FindIt
+        base_url: http://sfx-test-01.kb.dk:3410/sfx_local
         priority: 3
 
       SFXRSI:
         type: SfxRsi
         disabled: true
-        base_url: http://sfx.kb.dk/sfxtst41/cgi/core/rsi/rsi.cgi
+        base_url: http://sfx-test-01.kb.dk:3410/sfx_local/cgi/core/rsi/rsi.cgi
         priority: 3
       # First half of Amazon, run in foreground, get metadata and cover images.
       Amazon:
@@ -248,7 +248,7 @@ group1:
       type: Sfx
       disabled: false
       display_name: Phobos
-      base_url: http://sfx.kb.dk/sfxtst41
+      base_url: http://sfx-test-01.kb.dk:3410/sfx_local
       priority: 3
 
 group2:

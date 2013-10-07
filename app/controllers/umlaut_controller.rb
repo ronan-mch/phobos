@@ -94,7 +94,7 @@ class UmlautController < ApplicationController
         # base sfx url to use for search actions, error condition backup,
         # and some other purposes. For search actions (A-Z), direct database
         # connection to your SFX db also needs to be defined in database.yml
-        # sfx_base_url  'http://sfx.library.jhu.edu:8000/jhu_sfx?'
+        sfx_base_url  'http://sfx-test-01.kb.dk:3410/sfx_local?'
         #
 
 
