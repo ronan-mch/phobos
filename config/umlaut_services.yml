@@ -28,13 +28,14 @@ default:
         type: Sfx
         disabled: false
         display_name: FindIt
-        base_url: http://sfx-test-01.kb.dk:3410/sfx_local
+        base_url: http://sfx.kb.dk/sfx_local
         priority: 3
+
 
       SFXRSI:
         type: SfxRsi
         disabled: true
-        base_url: http://sfx-test-01.kb.dk:3410/sfx_local/cgi/core/rsi/rsi.cgi
+        base_url: http://sfx.kb.dk/sfx_local/cgi/core/rsi/rsi.cgi
         priority: 3
       # First half of Amazon, run in foreground, get metadata and cover images.
       Amazon:
@@ -56,7 +57,7 @@ default:
 
       # Suggest that any background services that may produce `fulltext` responses
       # be put in the same bg wave, to increase perceived responsiveness
-      # by ending the spinner in the fulltext area. 
+      # by ending the spinner in the fulltext area.
       
       # Second half of Amazon. It's Slow to lookup highlighted_link and search_inside
       # availability, so we do it in a bg wave.  
