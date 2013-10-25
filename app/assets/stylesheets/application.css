@@ -14,4 +14,7 @@
  *= require 'umlaut'
  *
  *= require_tree .
+ *=
+ *= require bootstrap
  */
+
