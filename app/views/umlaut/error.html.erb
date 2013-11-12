@@ -1,0 +1,43 @@
+<div class="oneColumn">
+
+<div class="error_section">
+
+    <div class="heading">
+      <h1>Sorry, something has gone wrong.</h1>
+    </div>
+
+    <h2>Please try one of the following options:</h2>
+     <ol>       
+          <li>If you entered this URL yourself, please check your URL for errors. </li>
+                    
+               
+          <% if params[:controller] # Unless this is really a 404 and we had no controller.
+          %>
+            <li>Sometimes it works to just <%= link_to "try again", params 
+            -%>. It may be a temporary problem which will be resolved if you come back later.</li>
+          <% end %>
+          
+          <% if ( umlaut_config.lookup!("sfx.sfx_base_url") && 
+                  params[:controller] == "resolve" && 
+                  params[:action] == "index")  %>
+            <li>If that doesn't work: <%= 
+                link_to("Try your request against backup link resolver", 
+                  umlaut_config.sfx.sfx_base_url.chomp("?") + '?' + 
+                  (request.fullpath.split("?")[1] || "") +
+                  '&sfx.ignore_date_threshold=1') %> 
+            </li>          
+          <% end %>
+        
+          
+          
+          <% if umlaut_config.help_url %>
+          <li>For more help, or to report a problem, please feel free to <%= 
+            link_to "contact us for help", umlaut_config.help_url
+            %>.</li>
+          <% end %>
+          
+      </ol>
+      
+      <br/>
+    
+</div>

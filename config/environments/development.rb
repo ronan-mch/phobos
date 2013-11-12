@@ -8,7 +8,7 @@ Phobos::Application.configure do
   # UMLAUT: Umlaut's use of threading is not compatible with class
   # reloading, even in development. Umlaut requires true here.
   # Rails 3.2 _might_ let you get away with false when it comes out.
-  config.cache_classes = true
+  config.cache_classes = false
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true

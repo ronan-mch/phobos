@@ -1,0 +1,74 @@
+<%
+  # save the conversion to hash on every call!
+  ref_meta = @current_context_object.referent.metadata
+  labels = referent_labels
+%>
+
+
+    <%= # Article Title
+    if ref_meta.has_key?("atitle") and (not ref_meta["atitle"].blank?)
+      content_tag(:dt, "#{labels.atitle}:", :class => "atitle") +
+        content_tag(:dd, ref_meta["atitle"], :class => "atitle")
+    end %>
+    <%= # Author
+    if ref_meta.has_key?("au") or ref_meta.has_key?("aulast")
+      author = (ref_meta["au"] || ref_meta["aulast"])
+      if ref_meta["aufirst"] || ref_meta["auinit"] || ref_meta["auinit1"]
+        author << ", #{(ref_meta["aufirst"] || ref_meta["auinit"] || ref_meta["auinit1"])}"
+      end
+      content_tag(:div, "Author:", :class => "author col-md-1") +
+        content_tag(:div, author, :class => "author col-md-11")
+    end %>
+    <%=# Journal/Book Title
+    if ref_meta.has_key?("jtitle")  or ref_meta.has_key?("title") or ref_meta.has_key?("btitle")
+      content_tag(:div, "#{labels.title}:", :class => "title col-md-6 hide") +
+        content_tag(:div, :class => "title h4 col-md-8") {
+          link_to(ref_meta["title"] || ref_meta["btitle"] || ref_meta["jtitle"],
+            url_for_with_co({:controller => 'resolve'}, @current_context_object),
+              {:target => search_result_target_window}) }
+    end %>
+    <div class="col-md-4 ">
+        <%= # ISSN
+        if ref_meta.has_key?("issn") and (not ref_meta["issn"].blank?)
+          content_tag(:strong, "ISSN:", :class => "") +
+            content_tag(:span, ref_meta["issn"], :class => "")
+        end %>
+    </div>
+    <%= # ISBN
+    if ref_meta.has_key?("isbn") and (not ref_meta["isbn"].blank?)
+      content_tag(:dt, "ISBN:", :class => "isbn col-md-1") +
+        content_tag(:dd, ref_meta["isbn"], :class => "isbn col-md-11")
+    end %>
+    <%= # Publisher
+    if ref_meta.has_key?("pub") and (not ref_meta["pub"].blank?)
+      publisher = (ref_meta.has_key?("place") and (not ref_meta["place"].blank?)) ? "#{ref_meta['place']} : " : ""
+      publisher << ref_meta["pub"]
+      content_tag(:dt, "Publisher", :class => "publisher col-md-1") +
+        content_tag(:dd, publisher, :class => "publisher col-md-11")
+    end %>
+    <%= # Publishing info, etc.
+    if ref_meta.has_key?("date") and (not ref_meta["date"].blank?)
+      content_tag(:dt, "Published:", :class => "published col-md-1") +
+        content_tag(:dd, date_format(ref_meta["date"]), :class => "published col-md-11")
+    end %>
+    <%= # Volume
+    if ref_meta.has_key?("volume")
+      content_tag(:dt, "Volume:", :class => "volume col-md-1") +
+        content_tag(:dd, ref_meta["volume"], :class => "volume col-md-11")
+    end %>
+    <%= # Issue
+    if ref_meta.has_key?("issue")
+      content_tag(:dt, "Issue:", :class => "issue col-md-1") +
+        content_tag(:dd, ref_meta["issue"], :class => "issue col-md-11")
+    end %>
+    <%= # Pages
+    if ref_meta.has_key?("spage")
+      pages = ref_meta["spage"]
+      pages = "#{pages} - #{ref_meta["epage"]}" if ref_meta.has_key?("epage")
+      content_tag(:dt, "Page:", :class => "page col-md-1") +
+        content_tag(:dd, pages, :class => "page col-md-11")
+    end %>
+
+  <div class="umlaut-citation-link hide">
+    <%= resolver_link(@current_context_object, {:target => search_result_target_window}) %>
+  </div>

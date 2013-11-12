@@ -39,7 +39,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    commonjs (0.2.7)
     confstruct (0.2.5)
     ensure_valid_encoding (0.5.3)
     erubis (2.7.0)
@@ -55,13 +54,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
-    less (2.4.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.4.2)
-      actionpack (>= 3.1)
-      less (~> 2.4.0)
-    less-rails-bootstrap (3.0.3)
-      less-rails (~> 2.4.2)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -149,7 +141,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   httpclient (~> 2.3.3)
   jquery-rails
-  less-rails-bootstrap (~> 3.0.3)
   mysql2
   rails (= 3.2.13)
   ruby-prof
