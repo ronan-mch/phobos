@@ -89,16 +89,25 @@ header .navbar{
     #fulltext, #holding{
       h4{
         @extend .lead;
-        margin-bottom: 0 !important;
-        padding: 0;
+        margin-bottom: $padding-base-vertical !important;
+
       }
-      li{
-        padding:$padding-base-vertical 0;
-        span{
-          display: inline-block;
+      ul{
+        @extend .list-unstyled;
+        li{
+          padding:0 $padding-base-horizontal $padding-base-vertical $padding-base-horizontal;
+          span{
+            display: inline-block;
+          }
         }
       }
+
+      p.umlaut-unavailable{
+        @extend .text-danger;
+        padding:0 $padding-base-horizontal;
+      }
     }
+
 
 
 // Footer
