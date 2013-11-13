@@ -26,19 +26,20 @@
                     <%=t :language%>:<b class="caret"></b>
                     </a>
                   <%= render_kb_locale_dropdown %>
-<!--                    <ul class="dropdown-menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-ok pull-right"></span>Dansk</a></li>
-                    </ul>-->
                 </li>
             </ul>
         </div>
       <% end %>
       <ol class="breadcrumb">
-        <li><a href="#">Rex</a></li>
-        <li><a href="#">E-tidskrifter</a></li>
-        <li><a href="#">C</a></li>
-        <li><span>Caderno de pesquisa. Série biologia</span></li>
+        <li><a href="http://rex.kb.dk">Rex</a></li>
+        <li><a href="<%= root_url %>">E-tidsskrifter</a></li>
+        <%# Only show item in breadcrumb for item view %>
+        <% if params[:controller] == 'resolve'%>
+            <% unless @user_request.referent.type_of_thing == 'article' %>
+                <li><%= link_to(@page_title[0], :controller => 'search', :action => 'journal_list', :id => @page_title[0])%></li>
+            <% end %>
+            <li><span><%= truncate(@page_title, :separator => ' ') %></span></li>
+        <% end %>
       </ol>
     </div>
 
