@@ -30,6 +30,15 @@
             </ul>
         </div>
       <% end %>
+
+
+
+    </div>
+
+</div>
+
+<div id="breadcrumbWrapper">
+  <div class="container">
       <ol class="breadcrumb">
         <li><a href="http://rex.kb.dk">Rex</a></li>
         <li><a href="<%= root_url %>">E-tidsskrifter</a></li>
@@ -38,11 +47,10 @@
             <% unless @user_request.referent.type_of_thing == 'article' %>
                 <li><%= link_to(@page_title[0], :controller => 'search', :action => 'journal_list', :id => @page_title[0])%></li>
             <% end %>
-            <li><span><%= truncate(@page_title, :separator => ' ') %></span></li>
+            <li class="active"><%= truncate(@page_title, :separator => ' ') %></li>
         <% end %>
       </ol>
-    </div>
-
+  </div>
 </div>
 
 

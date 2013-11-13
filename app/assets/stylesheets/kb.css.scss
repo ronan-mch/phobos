@@ -24,6 +24,13 @@ $state-info-text:             #c09853;
 $state-info-bg:               #fcf8e3;
 
 $icon-font-path:          "fonts/" !default;
+
+// Breadcrumbs
+// -------------------------
+$breadcrumb-bg:               $brand-primary !important;
+$breadcrumb-color:            $neutral !important;
+$breadcrumb-active-color:     $neutral !important;
+
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
@@ -42,7 +49,31 @@ header .navbar{
   margin-bottom:          0;
 }
 
-
+// Breadcrumb
+// -------------------------
+#breadcrumbWrapper{
+  background-color:$breadcrumb-bg ;
+  .breadcrumb {
+    margin-bottom: 0px;
+    list-style: none;
+    background-color:             transparent ;
+    border-radius: 0px ;
+    > li {
+      display: inline-block;
+      a{
+        color: $breadcrumb-color;
+      }
+      &+li:before {
+        content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+        padding: 0 5px;
+        color: $breadcrumb-color;
+      }
+    }
+    > .active {
+      color: $breadcrumb-active-color;
+    }
+  }
+}
 
 // Search
 // -------------------------
