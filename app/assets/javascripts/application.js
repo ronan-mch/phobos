@@ -17,4 +17,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require umlaut
 //= require_tree.
