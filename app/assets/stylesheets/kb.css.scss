@@ -86,9 +86,8 @@ header .navbar{
       margin: $padding-large-vertical 0;
     }
 
-    #fulltext, #holding{
+    #main_response_list, .sidebar{
       h4{
-        @extend .lead;
         margin-bottom: $padding-base-vertical !important;
 
       }
