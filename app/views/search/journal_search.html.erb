@@ -30,7 +30,7 @@
                     </div>
                       <div class="form-group">
                         <select name="umlaut.title_search_type" class="form-control">
-                          <%= options_for_select({"contains" => "contains", "begins with" => "begins", "exact match" => "exact"}, params["umlaut.title_search_type"])  %>
+                          <%= options_for_select({t(:contains) => "contains", t(:begins_with) => "begins", t(:exact_match) => "exact"}, params["umlaut.title_search_type"])  %>
                         </select>
                       </div>
 
@@ -55,12 +55,12 @@
 
 
     <% unless @hits == 0%>
-      <h3>Showing results <%= @start_result_num %> through <%= @end_result_num %> of <%= @hits %></h3>
+      <h3><%= t( :showing_results, start: @start_result_num, until:  @end_result_num, total: @hits) %></h3>
     <% end %>
     <% if params["rft.jtitle"] %>
         <div class="alert alert-info">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <em><strong>Note:</strong> Alternate titles might have matched your search terms</em>
+            <em><strong><%= t :note %></strong><%= t :other_titles_might %> </em>
         </div>
     <% end %>
 

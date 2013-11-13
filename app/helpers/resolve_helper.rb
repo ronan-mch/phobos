@@ -27,18 +27,18 @@ module ResolveHelper
   # see SectionRenderer.
   def render_section(arguments = {})
     presenter = (arguments.kind_of?( SectionRenderer )) ?
-        arguments : SectionRenderer.new(@user_request, arguments  )
+      arguments : SectionRenderer.new(@user_request, arguments  )
     render(:partial => "section_display", :locals => {:presenter => presenter })
   end
 
   # Return an array of css classes that should be attached to an .umlaut_section
-  # generally 'umlaut-section', plus the section_id, plus possibly
+  # generally 'umlaut-section', plus the section_id, plus possibly 
   # 'umlaut-section-highlighted'. See #should_highlight_section?
   #
   # pass in:
   # * current Umlaut Request object
   # * string section id
-  # * array of umlaut ServiceResponses already fetched for this section.
+  # * array of umlaut ServiceResponses already fetched for this section. 
   def section_css_classes(umlaut_request, section_id, response_list)
     classes = ["umlaut-section", section_id]
     classes << 'umlaut-section-highlighted' if should_highlight_section?(umlaut_request, section_id, response_list)
@@ -50,29 +50,29 @@ module ResolveHelper
   # otherwise holdings/docdel sections (in some cases both even if holdings present,
   # in some cases just docdel, depending on nature of resource.) This is
   # something local institutions may want to supply custom logic for,
-  # over-ride this method.
+  # over-ride this method. 
   #
   # This is VERY tricky to get right, BOTH becuase of local policy differences,
   # AND becuase umlaut's concurrent service handling means things are changing
   # all the time. Umlaut used to just highlight fulltext with responses, that's it.
   # But we're trying something more sophisticated. You may want to over-ride with
-  # something simpler, or something better suited to local policies and conditions.
+  # something simpler, or something better suited to local policies and conditions. 
   def should_highlight_section?(umlaut_request, section_id, response_list)
     case section_id
-      when "fulltext"
-        umlaut_request.get_service_type("fulltext").present?
-      when "holding"
-        umlaut_request.get_service_type("holding").present? && umlaut_request.get_service_type("fulltext").empty?
-      when "document_delivery"
-        # Only once fulltext and holdings are done being fetched.
-        # If there's no fulltext or holdings, OR there's holdings, but
-        # it's a journal type thing, where we probably don't know if the
-        # particular volume/issue wanted is present.
-        umlaut_request.get_service_type("fulltext").empty? &&
-            (! umlaut_request.service_types_in_progress?(["fulltext", "holding"])) && (
-        umlaut_request.get_service_type("holding").empty? ||
-            umlaut_request.referent.format == "journal"
-        )
+    when "fulltext"
+      umlaut_request.get_service_type("fulltext").present?
+    when "holding"
+      umlaut_request.get_service_type("holding").present? && umlaut_request.get_service_type("fulltext").empty?
+    when "document_delivery"
+      # Only once fulltext and holdings are done being fetched. 
+      # If there's no fulltext or holdings, OR there's holdings, but
+      # it's a journal type thing, where we probably don't know if the
+      # particular volume/issue wanted is present. 
+      umlaut_request.get_service_type("fulltext").empty? && 
+      (! umlaut_request.service_types_in_progress?(["fulltext", "holding"])) && (
+        umlaut_request.get_service_type("holding").empty? || 
+        umlaut_request.referent.format == "journal"
+      )
     end
   end
 
@@ -116,23 +116,23 @@ module ResolveHelper
     heading = content_tag(:span,( expanded ? "Hide " : "Show "), :class=>'expand_contract_action_label') + arg_heading
     body_class = (expanded ? "in" : "")
     link_params = params.merge('umlaut.request_id' => @user_request.id,
-                               "umlaut.show_#{id}" => (! expanded).to_s,
-                               # Need to zero out format-related params for when we're coming
-                               # from a partial html api request, so the link we generate
-                               # is not to format json/xml/etc.
-                               :format => nil,
-                               'umlaut.response_format' => nil,
-                               'umlaut.jsonp'=>nil,
-                               # In Rails3, an :anchor param will actually be used for #fragmentIdentifier
-                               # on end of url
-                               :anchor => "#{id}_toggle_link"
-    )
+      "umlaut.show_#{id}" => (! expanded).to_s,
+      # Need to zero out format-related params for when we're coming
+      # from a partial html api request, so the link we generate
+      # is not to format json/xml/etc.
+      :format => nil,
+      'umlaut.response_format' => nil,
+      'umlaut.jsonp'=>nil,
+      # In Rails3, an :anchor param will actually be used for #fragmentIdentifier
+      # on end of url
+      :anchor => "#{id}_toggle_link"
+      )
     # Make sure a self-referencing link from partial_html_sections
     # really goes to full HTML view.
     link_params[:action] = "index" if link_params[:action] == "partial_html_sections"
     return content_tag(:div, :class => "collapsible", :id => "collapse_#{id}") do
       link_to(icon + " " + heading, link_params, :class => "collapse-toggle", "data-target" => "##{id}", "data-toggle" => "collapse") +
-          content_tag(:div, :id => id, :class => ["collapse"]<< body_class, &block)
+        content_tag(:div, :id => id, :class => ["collapse"]<< body_class, &block)
     end
   end
 
@@ -181,18 +181,18 @@ module ResolveHelper
     parts =[]
     parts << content_tag(:ul, :class => options[:ul_class]) do
       safe_join(
-          visible_list.enum_for(:each_with_index).collect do |item, index|
-            yield(item, index)
-          end, " \n    "
+        visible_list.enum_for(:each_with_index).collect do |item, index|
+          yield(item, index)
+        end, " \n    "
       )
     end
     if (hidden_list.present?)
       parts << expand_contract_section("#{hidden_list.length} more", id) do
         content_tag(:ul, :class=>options[:ul_class]) do
           safe_join(
-              hidden_list.enum_for(:each_with_index).collect do |item, index|
-                yield(item, index + options[:limit] - 1)
-              end, " \n    "
+            hidden_list.enum_for(:each_with_index).collect do |item, index|
+              yield(item, index + options[:limit] - 1)
+            end, " \n    "
           )
         end
       end
@@ -256,15 +256,15 @@ module ResolveHelper
   # to show with config resolve_display.show_coverage_summary
   def coverage_summary(response)
     unless (@user_request.title_level_citation? &&
-        umlaut_config.lookup!("resolve_display.show_coverage_summary", false) &&
-        (response[:coverage_begin_date] || response[:coverage_end_date]))
+            umlaut_config.lookup!("resolve_display.show_coverage_summary", false) &&
+            (response[:coverage_begin_date] || response[:coverage_end_date]))
       return nil
     end
 
-    start   = response[:coverage_begin_date].try(:year) || I18n.t("umlaut.coverage_summary.open_start", :default => "first")
-    finish  = response[:coverage_end_date].try(:year) || I18n.t("umlaut.coverage_summary.open_end", :default => "latest")
+    start   = response[:coverage_begin_date].try(:year) || I18n.t("umlaut.coverage_summary.open_start", :default => t(:first))
+    finish  = response[:coverage_end_date].try(:year) || I18n.t("umlaut.coverage_summary.open_end", :default => t(:latest))
 
-    content_tag("span", :class=>"label label-default") do
+    content_tag("span", :class=>"coverage_summary") do
       "#{start} – #{finish}:"
     end
   end
