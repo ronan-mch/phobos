@@ -68,7 +68,7 @@ module Umlaut::Helper
   def render_umlaut_permalink
     if @user_request 
       content_tag("div", :class => "umlaut-permalink") do
-        render_umlaut_permalink_toggle + 
+        render_umlaut_permalink_toggle +
         render_umlaut_permalink_content
       end
     end
@@ -139,6 +139,17 @@ module Umlaut::Helper
          end
        end
     end
+  end
+
+  # Return permalink for request, creating one if it doesn't already exist.
+  # KB overwrite of resolve#get_permalink to remove js element and make accessible to view
+  def get_permalink
+    unless current_permalink_url
+      permalink = Permalink.new_with_values!(@user_request.referent, @user_request.referrer_id)
+      @user_request.referent.permalinks << permalink
+    end
+
+    current_permalink_url
   end
 
 end

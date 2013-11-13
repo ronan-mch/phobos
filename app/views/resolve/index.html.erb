@@ -39,7 +39,8 @@
                 <div class=" col-sm-4">
 
                 <div class="sidebar well">
-                  <%= render_umlaut_permalink %>
+                  <h4 class="lead"><%= t :short_link %></h4>
+                  <%= text_field_tag 'short_link', get_permalink, 'read-only' => 'read-only', :class => 'form-control' %>
                     <% html_sections(:sidebar).each do |section| %>
                         <%= content_tag "div", :id => section[:div_id] do %>
                             <%= render_section(section) %>
