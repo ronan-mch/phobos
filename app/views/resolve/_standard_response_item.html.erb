@@ -36,7 +36,7 @@
     # legacy, the 'notes' field can take raw html, we need to leave it that way for
     # now, but it's not great.
   -%>
-  <%= content_tag(:div, view_data[:notes].html_safe, :class => "response_notes") unless view_data[:notes].blank? %>
+  <%= content_tag(:small, view_data[:notes].html_safe, :class => "response_notes text-muted show") unless view_data[:notes].blank? %>
   <%= content_tag(:div, content_tag(:strong, "Authentication:") + " #{view_data[:authentication]}", 
         :class => "response_authentication_instructions") unless view_data[:authentication].blank? %>
   <%-
