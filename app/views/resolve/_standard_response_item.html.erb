@@ -24,14 +24,14 @@
           "svc_id_#{service_response.id}") { content_tag(:div, content, :class => "umlaut-content-indent") } %>
   <% # Ordinary href link
   else %>
-      <%= coverage_summary(view_data) %>
-    <%= link_to({:controller=>'link_router', :id=>service_response.id}, 
-          {:id => "svctype_link_#{service_response.id}", :target=>"_blank", :class => "response_link"}) do %>
-      <%= view_data[:display_text] %><%
-    end
+    <%= content_tag(:div,
+        link_to({:controller=>'link_router', :id=>service_response.id},
+          {:id => "svctype_link_#{service_response.id}", :target=>"_blank", :class => "response_link show"}) do %>
+          <%= coverage_summary(view_data) %> <%= view_data[:display_text] %><%
+    end )
   end %>
-  <%= content_tag(:div, "from #{view_data[:source] || service_response.service.display_name}", :class => "response_source") if show_source %>
-  <%= content_tag(:i, view_data[:coverage], :class => "response_coverage_statement text-muted show ") unless view_data[:coverage].blank? %>
+  <%= content_tag(:small, "from #{view_data[:source] || service_response.service.display_name}", :class => "response_source text-muted show ") if show_source %>
+  <%= content_tag(:small, view_data[:coverage], :class => "response_coverage_statement text-muted show ") unless view_data[:coverage].blank? %>
   <%-
     # legacy, the 'notes' field can take raw html, we need to leave it that way for
     # now, but it's not great.
