@@ -30,7 +30,7 @@
           <%= coverage_summary(view_data) %> <%= view_data[:display_text] %><%
     end )
   end %>
-  <%= content_tag(:small, "from #{view_data[:source] || service_response.service.display_name}", :class => "response_source text-muted show ") if show_source %>
+  <%= content_tag(:small, "#{t(:from)} #{view_data[:source] || service_response.service.display_name}", :class => "response_source text-muted show ") if show_source %>
   <%= content_tag(:small, view_data[:coverage], :class => "response_coverage_statement text-muted show ") unless view_data[:coverage].blank? %>
   <%-
     # legacy, the 'notes' field can take raw html, we need to leave it that way for

@@ -16,7 +16,7 @@
       if ref_meta["aufirst"] || ref_meta["auinit"] || ref_meta["auinit1"]
         author << ", #{(ref_meta["aufirst"] || ref_meta["auinit"] || ref_meta["auinit1"])}"
       end
-      content_tag(:div, "Author:", :class => "author col-md-1") +
+      content_tag(:div, t(:author), :class => "author col-md-1") +
         content_tag(:div, author, :class => "author col-md-11")
     end %>
     <%=# Journal/Book Title
@@ -43,29 +43,29 @@
     if ref_meta.has_key?("pub") and (not ref_meta["pub"].blank?)
       publisher = (ref_meta.has_key?("place") and (not ref_meta["place"].blank?)) ? "#{ref_meta['place']} : " : ""
       publisher << ref_meta["pub"]
-      content_tag(:dt, "Publisher", :class => "publisher col-md-1") +
+      content_tag(:dt, t(:publisher), :class => "publisher col-md-1") +
         content_tag(:dd, publisher, :class => "publisher col-md-11")
     end %>
     <%= # Publishing info, etc.
     if ref_meta.has_key?("date") and (not ref_meta["date"].blank?)
-      content_tag(:dt, "Published:", :class => "published col-md-1") +
+      content_tag(:dt, t(:published), :class => "published col-md-1") +
         content_tag(:dd, date_format(ref_meta["date"]), :class => "published col-md-11")
     end %>
     <%= # Volume
     if ref_meta.has_key?("volume")
-      content_tag(:dt, "Volume:", :class => "volume col-md-1") +
+      content_tag(:dt, t(:volume), :class => "volume col-md-1") +
         content_tag(:dd, ref_meta["volume"], :class => "volume col-md-11")
     end %>
     <%= # Issue
     if ref_meta.has_key?("issue")
-      content_tag(:dt, "Issue:", :class => "issue col-md-1") +
+      content_tag(:dt, t(:issue), :class => "issue col-md-1") +
         content_tag(:dd, ref_meta["issue"], :class => "issue col-md-11")
     end %>
     <%= # Pages
     if ref_meta.has_key?("spage")
       pages = ref_meta["spage"]
       pages = "#{pages} - #{ref_meta["epage"]}" if ref_meta.has_key?("epage")
-      content_tag(:dt, "Page:", :class => "page col-md-1") +
+      content_tag(:dt, t(:page), :class => "page col-md-1") +
         content_tag(:dd, pages, :class => "page col-md-11")
     end %>
 
