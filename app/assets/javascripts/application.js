@@ -18,4 +18,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require umlaut/update_resolve_styling
-// require_tree.
+//= require umlaut/placeholder_compatibility
+//= require_tree
