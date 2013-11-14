@@ -19,17 +19,17 @@
 
                     <div class="form-group">
                       <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-8">
                           <div class="control-group">
-                            <%= text_field :journal, :isbn, {:name=>'rft.issn', :max_length => "9", :placeholder=>"ISSN",:class=>"issn input-lg form-control"} %>
+                            <%= text_field :journal, :title, {:name=>'rft.jtitle', :value=>params['rft.jtitle'], :class=>"title_search input-lg form-control ", :placeholder=>"Title", :autocomplete => "on"} %>
                           </div>
                         </div>
-                        <div class="col-xs-8">
+                        <div class="col-xs-4">
                           <div class="input-group input-group-lg">
                             <%# <div class="input-group-btn"> %>
                             <%#= button_tag "More search options", { :"data-toggle"=>"collapse", :"data-target"=>"#advanced", :name=>"Generate_OpenURL2", :class => "btn btn-primary"}  do content_tag(:span, '', {:class => "glyphicon glyphicon-cog"}) end %>
                             <%#</div> %>
-                            <%= text_field :journal, :title, {:name=>'rft.jtitle', :value=>params['rft.jtitle'], :class=>"title_search form-control ", :placeholder=>"Title", :autocomplete => "on"} %>
+                            <%= text_field :journal, :isbn, {:name=>'rft.issn', :max_length => "9", :placeholder=>"ISSN",:class=>"issn form-control"} %>
                             <div class="input-group-btn">
                               <%= button_tag "Search", {:name=>"Generate_OpenURL2", :class => "btn btn-primary"}  do content_tag(:span, '', {:class => "glyphicon glyphicon-search "}) end %>
                             </div>
