@@ -55,6 +55,7 @@ en:
   part: Part
   article: article
   journal: journal
+  book: book
   published_in: Published in
   last_name: Last Name
   first_name: First Name
