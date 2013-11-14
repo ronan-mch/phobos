@@ -25,7 +25,7 @@ module UmlautConfigurable
   # to initialize
   def self.set_default_configuration!(configuration)
     configuration.configure do
-      app_name 'Find It'
+      app_name 'E-Tidsskrifter'
       # Different navbar title? Defaults to app_name
       header_title deferred! {|c| c.app_name}
       # URL to image to use for link resolver, OR name of image asset in local app. 
@@ -36,7 +36,7 @@ module UmlautConfigurable
       # footer_credit "Find It service provided by <a href='http://www.university.edu/'>My University</a>".html_safe
       
       # Sometimes Umlaut sends out email, what email addr should it be from?
-      from_email_addr 'no_reply@umlaut.example.com'
+      from_email_addr 'no_reply@kb.dk'
       localisation_enabled true
       layout "umlaut"
       resolve_layout deferred! {|c| c.layout}    

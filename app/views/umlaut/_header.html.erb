@@ -44,7 +44,7 @@
         <li><a href="<%= root_url %>">E-tidsskrifter</a></li>
         <%# Only show item in breadcrumb for item view %>
         <% if params[:controller] == 'resolve'%>
-            <% unless @user_request.referent.type_of_thing == 'article' %>
+            <% if @user_request.referent.type_of_thing == 'journal' && !@page_title.nil? %>
                 <li><%= link_to(@page_title[0], :controller => 'search', :action => 'journal_list', :id => @page_title[0])%></li>
             <% end %>
             <li class="active"><%= truncate(@page_title, :separator => ' ') %></li>
