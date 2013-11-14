@@ -19,23 +19,22 @@
 
                     <div class="form-group">
                         <div class="input-group input-group-lg">
-                            <div class="input-group-btn">
-                                <%= button_tag "More search options", { :"data-toggle"=>"collapse", :"data-target"=>"#advanced", :name=>"Generate_OpenURL2", :class => "btn btn-primary"}  do content_tag(:span, '', {:class => "glyphicon glyphicon-cog"}) end %>
-                            </div>
+                            <%# <div class="input-group-btn"> %>
+                                <%#= button_tag "More search options", { :"data-toggle"=>"collapse", :"data-target"=>"#advanced", :name=>"Generate_OpenURL2", :class => "btn btn-primary"}  do content_tag(:span, '', {:class => "glyphicon glyphicon-cog"}) end %>
+                          <%#</div> %>
                             <%= text_field :journal, :title, {:name=>'rft.jtitle', :value=>params['rft.jtitle'], :class=>"title_search form-control ", :autocomplete => "on"} %>
                             <div class="input-group-btn">
                                 <%= button_tag "Search", {:name=>"Generate_OpenURL2", :class => "btn btn-primary"}  do content_tag(:span, '', {:class => "glyphicon glyphicon-search "}) end %>
                             </div>
                         </div>
                     </div>
-                      <div class="form-group">
-                        <select name="umlaut.title_search_type" class="form-control">
-                          <%= options_for_select({t(:contains) => "contains", t(:begins_with) => "begins", t(:exact_match) => "exact"}, params["umlaut.title_search_type"])  %>
-                        </select>
-                      </div>
+                      <%#<div class="form-group">
+                        <select name="umlaut.title_search_type" class="form-control">%>
+                          <%#= options_for_select({t(:contains) => "contains", t(:begins_with) => "begins", t(:exact_match) => "exact"}, params["umlaut.title_search_type"])  %>
+                        <%# </select>
+                      </div> %>
                       <div class="control-group">
-                        <%= label :journal, :isbn, "ISSN:", :class=> "control-label" %>
-                        <%= text_field :journal, :isbn, {:name=>'rft.issn', :max_length => "9", :class=>"issn input-small"} %>
+                        <%= text_field :journal, :isbn, {:name=>'rft.issn', :max_length => "9", :placeholder=>"ISSN",:class=>"issn input-sm form-control"} %>
                       </div>
                     <div id="advanced" class="collapse ">Advanced search</div>
 
