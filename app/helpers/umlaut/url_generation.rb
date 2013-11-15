@@ -15,7 +15,7 @@ module Umlaut::UrlGeneration
   def url_for(*arguments)
     url = super
     if @generate_urls_with_host && url.starts_with?("/")
-      url = root_url.chomp("/") + url
+    #  url = root_url.chomp("/") + url
     end
     return url
   end
