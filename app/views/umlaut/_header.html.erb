@@ -1,0 +1,57 @@
+<%# local implementers may over-ride this partial for custom local header. 
+    This partial is called by default umlaut layout.  %>
+<div id="header" class="navbar navbar-default">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-xs hidden-sm" href="http://www.kb.dk/da/index.html" title="Det Kongelige Bibliotek">
+              <img src="/assets/logoDa.png" alt="Det Kongelige Bibliotek">
+            </a>
+            <a class="navbar-brand visible-xs visible-sm" href="http://www.kb.dk/da/index.html" title="Det Kongelige Bibliotek">
+              <img src="/assets/logo.png" alt="Det Kongelige Bibliotek">
+            </a>
+        </div>
+
+      <% if umlaut_config.localisation_enabled %>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%=t :language%>:<b class="caret"></b>
+                    </a>
+                  <%= render_kb_locale_dropdown %>
+                </li>
+            </ul>
+        </div>
+      <% end %>
+
+
+
+    </div>
+
+</div>
+
+<div id="breadcrumbWrapper">
+  <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="http://rex.kb.dk">Rex</a></li>
+        <li><a href="<%= root_url %>">E-tidsskrifter</a></li>
+        <%# Only show item in breadcrumb for item view %>
+        <% if params[:controller] == 'resolve'%>
+            <% if @user_request.referent.type_of_thing == 'journal' && !@page_title.nil? %>
+                <li><%= link_to(@page_title[0], :controller => 'search', :action => 'journal_list', :id => @page_title[0])%></li>
+            <% end %>
+            <li class="active"><%= truncate(@page_title, :separator => ' ') %></li>
+        <% end %>
+      </ol>
+  </div>
+</div>
+
+
+
