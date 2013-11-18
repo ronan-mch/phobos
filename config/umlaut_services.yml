@@ -51,8 +51,24 @@ default:
           - abstract
           - referent_enhance
           - cover_image
-          
-      
+
+
+      RexSearch:
+        type: ExternalSearch
+        disabled: false
+        priority: c
+        url: http://rex.kb.dk/primo_library/libweb/action/search.do?dscnt=0&scp.scps=scope%3A%28KGL%29&frbg=&tab=default_tab&dstmp=1384765590128&srt=rank&ct=search&mode=Basic&dum=true&tb=t&indx=1&vl%281UIStartWith0%29=contains&vl%28764319501UI1%29=all_items&vl%28747109341UI0%29=title&vl%28freeText0%29=%{keyword}&fn=search&vid=KGL
+        display_name: Det Kongelige Bibliotek
+        display_text: search_in_rex
+
+      BibliotekDKSearch:
+        type: ExternalSearch
+        disabled: false
+        priority: c
+        url: http://bibliotek.dk/da/search/work/%{keyword}?sort=date_descending&qe[year.op][0]=year_eq&page_id=bibdk_frontpage#content
+        display_name: Bibliotek.dk
+        display_text: search_in_bibliotek
+
       # Priority c  : Background          
 
       # Suggest that any background services that may produce `fulltext` responses
@@ -126,7 +142,7 @@ default:
       Bx:
         display_name: bX
         type: Bx
-        token: tokentokentoken
+        token: 185dfcd123b1d95b332da5525fa1be7e
         disabled: false
         priority: c
  

@@ -116,3 +116,6 @@ da:
   if_doesnt_work: 'Hvis ikke det virker:'
   try_backup_resolver: Prøv din forespørgsel igen mod vores backup resolver.
   to_report_a_problem: Hvis du vil have mere hjælp eller meld en fejl, må du gerne
+  kb: Det Kongelige Bibliotek
+  search_in_rex: Søg i REX
+  search_in_bibliotek: Søg i Bibliotek.dk
