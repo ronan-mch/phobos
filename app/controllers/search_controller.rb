@@ -98,15 +98,14 @@ class SearchController < UmlautController
       # If we narrowed down to one result redirect
       # to resolve action.
       redirect_to( url_for_with_co({:controller => 'resolve'}, @display_results[0]) )
-    elsif (@display_results.length == 0)
-      # 0 hits, do it too.
-      redirect_to(  url_for_with_co({:controller => 'resolve'}, @search_context_object) )
     end
-    @page_title = 'Journal titles that '
+    # Tell the user if we have no results to show - KB custom
+    @page_title = @display_results.length > 0 ? t(:journal_titles_that) : t(:no_journal_titles_found_that)
+    @page_title += ' '
     @page_title +=
       (params["umlaut.title_search_type"] == "begins") ?
-        'begin with ' : 'contain '
-    @page_title += "'" + params['rft.jtitle'] + "'"
+        t(:begins_with) : t(:contains)
+    @page_title += " '" + params['rft.jtitle'] + "':"
   end
 
   # Used for browse-by-letter

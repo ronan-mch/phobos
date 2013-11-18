@@ -8,9 +8,11 @@ da:
   journals_subheader: Leder du efter en bestemt tidsskrift eller artikel?
   search_instructions: Indsæt tidsskriftets titel eller ISSN nummeret. Hvis du har begge dele, brug ISSN nummeret.
   journal_title: Tidsskrift navn
-  contains: Indeholder
-  begins_with: Starter med
+  contains: indeholder
+  begins_with: starter med
   exact_match: Lige præcis
+  journal_titles_that: Tidsskrifter der
+  no_journal_titles_found_that: Kunne ikke finde tidsskrifter med titler der
   search_optional_info: 'Ekstra information - Indtast så meget som du kender af følgende:'
   volume: volumen
   vol: vol

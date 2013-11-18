@@ -11,9 +11,11 @@ en:
   journals_subheader: Looking for a specific journal or article
   search_instructions: Enter the journal title or the ISSN. If you have both the journal title and ISSN, use the ISSN.
   journal_title: Journal Title
-  contains: Contains
+  contains: contain
   begins_with: Begins with
   exact_match: Exact match
+  journal_titles_that: Journals that
+  no_journal_titles_found_that: Could not find any journals with titles that
   search_optional_info: 'Optional information - Enter as much as you know of the following:'
   date_label: date
   volume: volume
