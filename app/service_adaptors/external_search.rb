@@ -8,7 +8,11 @@ class ExternalSearch < Service
   def handle(request)
     # pull title out of request and insert into search url
     title = URI.encode(get_search_title(request.referent))
-    search_url = @url.gsub('%{keyword}', title) # using local var due to strange bug when using instance var
+    issn = get_issn(request.referent)
+    isbn = get_isbn(request.referent)
+    identifier = issn || isbn
+    search_url = @url.gsub('%{title}', title) # using local var due to strange bug when using instance var
+    search_url.gsub!('%{issn/isbn}', identifier)
     request.add_service_response(
         :service => self,
         :service_type_value => 'highlighted_link',
