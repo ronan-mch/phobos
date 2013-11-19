@@ -1,5 +1,5 @@
 class ExternalSearch < Service
-  include MetadataHelper
+  include KbMetadataHelper
 
   def initialize(config)
     super(config)
@@ -7,12 +7,10 @@ class ExternalSearch < Service
 
   def handle(request)
     # pull title out of request and insert into search url
-    title = URI.encode(get_search_title(request.referent))
-    issn = get_issn(request.referent)
-    isbn = get_isbn(request.referent)
-    identifier = issn || isbn
-    search_url = @url.gsub('%{title}', title) # using local var due to strange bug when using instance var
-    search_url.gsub!('%{issn/isbn}', identifier)
+    title = get_search_title(request.referent) || ''
+    identifier = get_identifier_for_search
+    search_url = get_search_url(identifier, title)
+
     request.add_service_response(
         :service => self,
         :service_type_value => 'highlighted_link',
@@ -21,6 +19,12 @@ class ExternalSearch < Service
     )
 
     request.dispatched(self, true)
+  end
+
+  def get_search_url(identifier, title)
+    search_url = @url.gsub('%{title}', URI.encode(title)) # using local var due to strange bug when using instance var
+    search_url.gsub!('%{issn/isbn}', identifier)
+    search_url
   end
 
 

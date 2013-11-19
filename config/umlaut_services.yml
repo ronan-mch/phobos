@@ -54,10 +54,10 @@ default:
 
 
       RexSearch:
-        type: ExternalSearch
+        type: RexSearch
         disabled: false
         priority: c
-        url: http://rex.kb.dk/primo_library/libweb/action/dlSearch.do?institution=KGL&vid=KGL&loc=local,scope:(KGL)&group=GUEST&query=any,contains,%{issn/isbn}+%{title}
+        url: http://rex.kb.dk/primo_library/libweb/action/dlSearch.do?institution=KGL&vid=KGL&loc=local,scope:(KGL)&group=GUEST&query=any,contains,%{issn/isbn}%{+OR+}(%{title}%)
         display_name: Det Kongelige Bibliotek
         display_text: search_in_rex
 
