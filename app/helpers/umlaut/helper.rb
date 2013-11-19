@@ -114,11 +114,23 @@ module Umlaut::Helper
     link_to t(other_locale), params.merge('umlaut.locale'.to_sym => other_locale)
   end
 
+  # this method renders a bootstrap style ul dropdown with locales
+  # the current locale is marked with a glyphicon
+  #
+  # if you're trying to debug this - I'm really sorry - this is the consequence
+  # of trying to achieve complicated nested structures with Rails helpers
+  # it might be easier to just rewrite this as erb
   def render_kb_locale_dropdown
+    locales = I18n.config.available_locales
+    other_locale = (locales - [I18n.locale]).pop
     content_tag :ul, :class => 'dropdown-menu' do
-      I18n.config.available_locales.each do |locale|
-        concat(content_tag(:li, link_to(t(locale), params.merge('umlaut.locale'.to_sym => locale))))
-      end
+      concat(content_tag(:li) do
+        link_to(params.merge('umlaut.locale'.to_sym => I18n.locale)) do
+          concat(content_tag :span, '', :class => 'glyphicon glyphicon-ok pull-right')
+          concat(t(I18n.locale))
+        end
+      end)
+      concat(content_tag(:li, link_to(t(other_locale), params.merge('umlaut.locale'.to_sym => other_locale))))
     end
   end
 
