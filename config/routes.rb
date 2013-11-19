@@ -8,7 +8,7 @@ Phobos::Application.routes.draw do
   match 'trafiklys/get_ip', to: 'trafiklys#get_ip'
   #if we don't get any parameters - show an error
   match 'trafiklys/lookUp', to: 'trafiklys#render_error'
-  match '/', to: 'search#journal_list'
+  match '/', to: 'search#journal_list', :id => 'A'
 
 
   Umlaut::Routes.new(self).draw
