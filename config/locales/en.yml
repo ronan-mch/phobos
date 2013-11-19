@@ -122,3 +122,25 @@ en:
   kb: The Royal Library
   search_in_rex: Search in REX
   search_in_bibliotek: Search in Bibliotek.dk
+  umlaut:
+    footer:
+      help_link: http://www.kb.dk/en/REX/sider
+      help_text: Help / FAQ
+      classic_link: https://rex.kb.dk/F/?func=file&file_name=find-b&local_base=kgl01_rexclassic&con_lng=eng
+      classic_text: REX Classic
+      other_libraries_link: http://www.kb.dk/da/REX/sider/biblioteker.html
+      other_libraries_text: Other libraries in REX
+      suggest_link: http://www.kb.dk/en/kub/service/sporgbib/forslag.html
+      suggest_text: Suggest a title
+      cant_find_link: https://rex.kb.dk/userServices/menu/Order
+      cant_find_text: Can't find what you're looking for?
+      opening_times_link: http://www.kb.dk/en/kb/aabningstider/
+      opening_times_text: Opening Hours
+      contact_link: http://www.kb.dk/en/kub/service/kontakt/index.html
+      contact_text: Contact the library
+      handicap_link: http://www.kb.dk/en/kb/handicap/index.html
+      handicap_text: Information for disabled
+      cookie_link: http://www.kb.dk/en/kb/webstedet/cookiepolitik.html
+      cookie_text: Cookie- and privacy policy
+      about_link: http://www.kb.dk/en/kb/webstedet/index.html
+      about_text: About the website

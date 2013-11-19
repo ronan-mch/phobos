@@ -119,3 +119,25 @@ da:
   kb: Det Kongelige Bibliotek
   search_in_rex: Søg i REX
   search_in_bibliotek: Søg i Bibliotek.dk
+  umlaut:
+    footer:
+      help_link: http://www.kb.dk/da/REX/sider?codekitCB=401828938.835484
+      help_text: Hjælp / FAQ
+      classic_link: https://rex.kb.dk/F/?func=file&amp;file_name=find-b&amp;local_base=kgl01_rexclassic&amp;con_lng=DAN
+      classic_text: REX Classic
+      other_libraries_link: http://www.kb.dk/da/REX/sider/biblioteker.html
+      other_libraries_text: Biblioteker i REX-samarbejdet
+      suggest_link: http://www.kb.dk/da/kub/service/sporgbib/forslag.html
+      suggest_text: Bogforslag
+      cant_find_link: https://rex.kb.dk/userServices/menu/Order
+      cant_find_text: Fandt du ikke hvad du søgte?
+      opening_times_link: http://www.kb.dk/da/kb/aabningstider/index.html
+      opening_times_text: Åbningstider & Adresser
+      contact_link: http://kontaktbiblioteket.kb.dk
+      contact_text: Kontakt biblioteket
+      handicap_link: http://www.kb.dk/da/kb/handicap/index.html
+      handicap_text: Handikap-information
+      cookie_link: http://www.kb.dk/da/kb/webstedet/cookiepolitik.html
+      cookie_text: Cookie- og privatlivspolitik
+      about_link: http://www.kb.dk/da/kb/webstedet/index.html
+      about_text: Om webstedet
