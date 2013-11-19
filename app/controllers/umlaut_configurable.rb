@@ -291,6 +291,8 @@ module UmlautConfigurable
         visibility :responses_exist
       end
       
+=begin
+    KB - we don't want this
       add_resolve_sections! do
         div_id "holding"
         section_title ServiceTypeValue[:holding].display_name_pluralize
@@ -298,6 +300,7 @@ module UmlautConfigurable
         partial 'holding'
         service_type_values ["holding","holding_search"]
       end
+=end
       
       add_resolve_sections! do
         div_id "document_delivery"

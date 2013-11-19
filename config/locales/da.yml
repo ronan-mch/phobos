@@ -141,3 +141,6 @@ da:
       cookie_text: Cookie- og privatlivspolitik
       about_link: http://www.kb.dk/da/kb/webstedet/index.html
       about_text: Om webstedet
+  resolve:
+    related_items:
+      no_related_found: "Ingen relaterede poster fundet."

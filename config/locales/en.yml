@@ -144,3 +144,6 @@ en:
       cookie_text: Cookie- and privacy policy
       about_link: http://www.kb.dk/en/kb/webstedet/index.html
       about_text: About the website
+  resolve:
+    related_items:
+      no_related_found: "No related items found."
