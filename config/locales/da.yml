@@ -22,7 +22,9 @@ da:
   issue: nummer
   start_page: 'Start side:'
   doi_or_pubmed_id: DOI eller Pubmed identifier
-  search: Søg
+  search:
+    journal_search:
+      system_change_notice: "Velkommen til det nye E-Tidsskrifter"
   having_trouble: Problemer?
   having_trouble_message: Prøv at indtaste mindre data. Hvis en værdi er forkert, kunne det sagtens skabe problemer.
   date:
@@ -123,8 +125,8 @@ da:
     footer:
       help_link: http://www.kb.dk/da/REX/sider?codekitCB=401828938.835484
       help_text: Hjælp / FAQ
-      classic_link: https://rex.kb.dk/F/?func=file&amp;file_name=find-b&amp;local_base=kgl01_rexclassic&amp;con_lng=DAN
-      classic_text: REX Classic
+      classic_link: http://www.kb.dk/da/materialer/e-ressourcer/tidsskrifter/index.html?subject=&q=&first=a&sso=true
+      classic_text: E-Tidsskrifter Classic
       other_libraries_link: http://www.kb.dk/da/REX/sider/biblioteker.html
       other_libraries_text: Biblioteker i REX-samarbejdet
       suggest_link: http://www.kb.dk/da/kub/service/sporgbib/forslag.html
@@ -141,6 +143,12 @@ da:
       cookie_text: Cookie- og privatlivspolitik
       about_link: http://www.kb.dk/da/kb/webstedet/index.html
       about_text: Om webstedet
+      classic_dialog_title: "Tilbage til den gamle?"
+      classic_dialog_text: "Vi har fornylig opgraderet vores E-Tidsskrifter side. Vi håber at du godt kan lide den, men hvis du hellere vil tilbage til den gamle, må du gerne fortælle os hvorfor. Derved kan vi forbedre systemet til næste gang."
+      classic_dialog_option1: "Kan ikke finde det jeg søger."
+      classic_dialog_option2: "Kan ikke lide udseende"
+      classic_dialog_option3: "Ingen kommentar."
+      classic_dialog_cancel: "Ok, jeg bliver her!"
   resolve:
     related_items:
       no_related_found: "Ingen relaterede poster fundet."

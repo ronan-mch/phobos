@@ -24,7 +24,9 @@ en:
   iss: Iss
   p: p
   doi_or_pubmed_id: 'DOI or Pubmed Identifier:'
-  search: Search
+  search:
+    journal_search:
+      system_change_notice: "Welcome to the new E-Journals"
   having_trouble: Having Trouble?
   having_trouble_message: Try entering less information about your article. If one piece of information is wrong, it could be causing the problem.
   date:
@@ -126,8 +128,8 @@ en:
     footer:
       help_link: http://www.kb.dk/en/REX/sider
       help_text: Help / FAQ
-      classic_link: https://rex.kb.dk/F/?func=file&file_name=find-b&local_base=kgl01_rexclassic&con_lng=eng
-      classic_text: REX Classic
+      classic_link: http://www.kb.dk/en/materialer/e-ressourcer/tidsskrifter/index.html?
+      classic_text: E-Journals Classic
       other_libraries_link: http://www.kb.dk/da/REX/sider/biblioteker.html
       other_libraries_text: Other libraries in REX
       suggest_link: http://www.kb.dk/en/kub/service/sporgbib/forslag.html
@@ -144,6 +146,12 @@ en:
       cookie_text: Cookie- and privacy policy
       about_link: http://www.kb.dk/en/kb/webstedet/index.html
       about_text: About the website
+      classic_dialog_title: "Back to the old version?"
+      classic_dialog_text: "We have upgraded our E-Journals system. We hope that you prefer this one to the old version, but if you don't, please let us know why so that we can improve your experience."
+      classic_dialog_option1: "I can't find the journal I'm looking for."
+      classic_dialog_option2: "I don't like the design"
+      classic_dialog_cancel: "I'll stay here."
+      classic_dialog_option3: "No reason."
   resolve:
     related_items:
       no_related_found: "No related items found."
