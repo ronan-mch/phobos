@@ -2,16 +2,16 @@
   <%
   unless @user_request.nil?
     cite = @user_request.referent.to_citation %>
-    <%= form_tag({:controller => "export_email", :action => "send_email", :id => params[:id]}, :class => "form-inline" ) do  %>
-      <h2><%=t :email_export_header %></h2>
+    <%= form_tag({:controller => "export_email", :action => "send_email", :role => "form", :id => params[:id]}, :class => "" ) do  %>
+      <h4><%=t :email_export_header %></h4>
       <%= validation_error flash[:alert] if flash[:alert] %>
       <fieldset>
-        <legend><%= "#{t(:title)}: #{h(cite[:title])} / #{h(cite[:author])}" %></legend>
-        <div class="control-group">
+        <p class="lead"><%= "#{t(:title)}: #{h(cite[:title])} / #{h(cite[:author])}" %></p>
+        <div class="form-group">
           <%= label_tag 'email', t(:enter_your_email) %>
-          <%= text_field_tag 'email', params[:email], :class => "input-xlarge" %>
+          <%= text_field_tag 'email', params[:email], :class => "form-control" %>
         </div>
-        <%= submit_tag t :send, :class => "btn btn-inverse" %>
+        <%= submit_tag t(:send), :class => "btn btn-primary" %>
       </fieldset><%
     end
   end %>
