@@ -152,3 +152,10 @@ da:
   resolve:
     related_items:
       no_related_found: "Ingen relaterede poster fundet."
+  primo_feedback:
+    show:
+      your_name: "Dit navn"
+      your_email: "Din email adresse"
+      your_comments: "Indtast spørgsmål eller kommentarer her"
+    send_message:
+      message_sent: "Din besked er blevet sendt. Tak for din hjælp."
