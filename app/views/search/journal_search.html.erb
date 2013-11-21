@@ -19,12 +19,21 @@
 
                     <div class="form-group">
                       <div class="row">
-                        <div class="col-xs-8">
+                        <div class="col-xs-6">
                           <div class="control-group">
                             <%= text_field :journal, :title, {:name=>'rft.jtitle', :value=>params['rft.jtitle'], :class=>"title_search input-lg form-control ", :placeholder=>"Title", :autocomplete => "on"} %>
                           </div>
                         </div>
-                        <div class="col-xs-4">
+
+                        <div class="col-xs-3">
+                          <div class="input-group input-group-lg">
+                            <select name="umlaut.title_search_type" class="form-control">
+                              <%= options_for_select({t(:contains) => "contains", t(:begins_with) => "begins", t(:exact_match) => "exact"}, params["umlaut.title_search_type"])  %>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-xs-3">
                           <div class="input-group input-group-lg">
 
                             <%= text_field :journal, :isbn, {:name=>'rft.issn', :max_length => "9", :placeholder=>"ISSN",:class=>"issn form-control"} %>
@@ -37,13 +46,8 @@
 
                       </div>
                     </div>
-                      <%#<div class="form-group">
-                        <select name="umlaut.title_search_type" class="form-control">%>
-                          <%#= options_for_select({t(:contains) => "contains", t(:begins_with) => "begins", t(:exact_match) => "exact"}, params["umlaut.title_search_type"])  %>
-                        <%# </select>
-                      </div> %>
 
-                    <div id="advanced" class="collapse ">Advanced search</div>
+
 
 
                 </form>

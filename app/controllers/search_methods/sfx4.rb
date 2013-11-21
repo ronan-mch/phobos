@@ -46,7 +46,7 @@ module SearchMethods
                              when "contains"
                                terms = title_query_param.split(" ")
                                #SFX4 seems to ignore 'the' or 'a' on the front, so we will too.
-                               if (["the", "a"].include? terms[0])
+                               if (["the", "a"].include? terms[0].downcase)
                                  terms = terms.slice(1..-1)
                                end
                                # Then make each term required, but stemmed. Seems to match SFX4,
@@ -54,6 +54,7 @@ module SearchMethods
                                query = terms.collect do |term|
                                  "+" + connection.quote_string(term) + "*"
                                end.join(" ")
+                               Rails.logger.debug "query is #{query}"
                                "MATCH (TS.TITLE_SEARCH) AGAINST ('#{query}' IN BOOLEAN MODE)"
                              when "begins"
                                # For 'begins', searching against TITLE itself rather than TITLE_SEARCH gives us
