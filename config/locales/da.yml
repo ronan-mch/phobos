@@ -159,3 +159,6 @@ da:
       your_comments: "Indtast spørgsmål eller kommentarer her"
     send_message:
       message_sent: "Din besked er blevet sendt. Tak for din hjælp."
+  layouts:
+    feedback:
+      feedback: "Feedback"

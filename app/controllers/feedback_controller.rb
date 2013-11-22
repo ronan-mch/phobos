@@ -1,4 +1,4 @@
-class PrimoFeedbackController < UmlautController
+class FeedbackController < ApplicationController
   # To change this template use File | Settings | File Templates.
   def show
 
@@ -7,7 +7,7 @@ class PrimoFeedbackController < UmlautController
 
   def send_message
     Rails.logger.debug "params are #{params.inspect}"
-    FeedbackMailer.send_feedback(params[:from], params[:id], params[:comments]).deliver
+    FeedbackMailer.send_feedback(params[:from], params[:system], params[:id], params[:comments]).deliver
   end
 
 end

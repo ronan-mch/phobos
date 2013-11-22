@@ -1,5 +1,9 @@
+<div class="container">
+
+
 <form class="form-horizontal" role="form" method="post">
   <input type="hidden" name="id" value="<%=params[:id] %>"/>
+  <input type="hidden" name="system" value="<%=params[:system] %>"/>
   <div class="form-group">
     <label for="from" class="col-sm-2 control-label"><%= t '.your_email' %></label>
     <div class="col-sm-10">
@@ -19,3 +23,4 @@
     </div>
   </div>
 </form>
+</div>

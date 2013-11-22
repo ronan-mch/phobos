@@ -155,10 +155,13 @@ en:
   resolve:
     related_items:
       no_related_found: "No related items found."
-  primo_feedback:
+  feedback:
     show:
       your_name: "Your Name"
       your_email: "Your email address"
       your_comments: "Type your question or comment here:"
     send_message:
       message_sent: "Your message has been sent, thank you for your feedback."
+  layouts:
+    feedback:
+      feedback: "Feedback"

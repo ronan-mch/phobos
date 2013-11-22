@@ -5,8 +5,8 @@ Phobos::Application.routes.draw do
   match 'trafiklys/lookUp/:open_url/:ip_address', to: 'trafiklys#look_up', open_url: /[^\/]*/, ip_address: /[^\/]*/
   match 'trafiklys/lookUp/:open_url', to: 'trafiklys#look_up', open_url: /[^\/]*/, ip_address: /[^\/]*/ #enable "."s in open-url
 
-  get 'primo_feedback', to: 'primo_feedback#show'
-  match 'primo_feedback', to: 'primo_feedback#send_message', via: :post
+  get 'feedback', to: 'feedback#show'
+  match 'feedback', to: 'feedback#send_message', via: :post
 
   match 'trafiklys/get_ip', to: 'trafiklys#get_ip'
   #if we don't get any parameters - show an error
