@@ -52,7 +52,8 @@ module SearchMethods
                                # Then make each term required, but stemmed. Seems to match SFX4,
                                # and more importantly give us decent results.
                                query = terms.collect do |term|
-                                 "+" + connection.quote_string(term) + "*"
+                                 #don't include of or for in this as they cause problems - KB
+                                 "+" + connection.quote_string(term) + "*" unless ['of', 'for'].include? term.downcase
                                end.join(" ")
                                Rails.logger.debug "query is #{query}"
                                "MATCH (TS.TITLE_SEARCH) AGAINST ('#{query}' IN BOOLEAN MODE)"
