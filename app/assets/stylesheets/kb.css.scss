@@ -81,6 +81,7 @@ header .navbar{
    padding: $jumbotron-padding;
    background:             lighten($btn-primary-bg, 10%);
    color:                  $neutral;
+   margin-bottom: $jumbotron-padding;
  }
 
 // Resultat list
