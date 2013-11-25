@@ -152,11 +152,16 @@ da:
   resolve:
     related_items:
       no_related_found: "Ingen relaterede poster fundet."
-  primo_feedback:
+  feedback:
     show:
       your_name: "Dit navn"
       your_email: "Din email adresse"
       your_comments: "Indtast spørgsmål eller kommentarer her"
+      ebook_download_help: "Klik her for hjælp til download af e-bøger"
+      ebook_download_help_link: "http://libguides.culis.kb.dk/content.php?pid=328476&sid=2761406"
+      title: "Fejlmeld online adgang"
+      help_text: "Hvis du oplever, at noget ikke virker, ser vi gerne at du fortæller os det, så vi kan rette op på fejlen. Benyt følgende formular, og jo mere præcist  du kan beskrive hvad du oplever, jo bedre mulighed har vi for at hjælpe dig."
+      send: "Send kommentar"
     send_message:
       message_sent: "Din besked er blevet sendt. Tak for din hjælp."
   layouts:

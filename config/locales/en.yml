@@ -159,7 +159,12 @@ en:
     show:
       your_name: "Your Name"
       your_email: "Your email address"
-      your_comments: "Type your question or comment here:"
+      your_comments: "Type your question or comment here"
+      ebook_download_help_link: "http://libguides.culis.kb.dk/content.php?pid=396411&sid=3246363"
+      ebook_download_help: "Click here for help with downloading e-books:"
+      title: "Report problems with online access"
+      help_text: "Please let us know if something doesn't work so that we can fix the problem. The more precise you are in describing the problem, the easier it is for us to help you."
+      send: "Send feedback"
     send_message:
       message_sent: "Your message has been sent, thank you for your feedback."
   layouts:

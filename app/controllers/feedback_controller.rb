@@ -6,8 +6,7 @@ class FeedbackController < ApplicationController
 
 
   def send_message
-    Rails.logger.debug "params are #{params.inspect}"
-    FeedbackMailer.send_feedback(params[:from], params[:system], params[:id], params[:comments]).deliver
+    FeedbackMailer.send_feedback(params[:name], params[:email], params[:system], params[:id], params[:comments]).deliver
   end
 
 end

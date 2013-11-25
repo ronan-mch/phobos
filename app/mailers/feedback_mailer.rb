@@ -3,9 +3,8 @@ class FeedbackMailer < ActionMailer::Base
 
 
 
-  def send_feedback(sender, system, item, comments)
-    Rails.logger.debug "args are #{system}, #{sender}, #{item}, #{comments}"
-    mail(:from => sender, :subject => "Feedback vedr. #{system} post #{item}", :body => comments)
+  def send_feedback(name, email, system, item, comments)
+    mail(:from => name, :reply_to => email, :subject => "Feedback vedr. #{system} post #{item}", :body => comments)
   end
 
 end
