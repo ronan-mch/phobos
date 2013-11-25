@@ -27,7 +27,8 @@ cite = @user_request.referent.to_citation
 <p class="published_in">
   <% if [:container_title, :volume, :issue, :page].find {|k| cite[k].present? } %>
 
-    <span class="published-label"><%="#{t(:published_in)} #{t(cite[:container_label])}" %></span> <span class="container-title">
+    <span class="published-label"><%="#{t(:published_in)} #{cite[:container_label]}"
+    %></span> <span class="container-title">
       <%= cite[:container_title] %></span>.
   <% end %>
 
