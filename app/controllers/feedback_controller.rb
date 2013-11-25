@@ -6,7 +6,8 @@ class FeedbackController < ApplicationController
 
 
   def send_message
-    FeedbackMailer.send_feedback(params[:name], params[:email], params[:system], params[:id], params[:comments]).deliver
+    email_with_name = "#{params[:name]} <#{params[:email]}>"
+    FeedbackMailer.send_feedback(email_with_name, params[:system], params[:id], params[:comments]).deliver
   end
 
 end

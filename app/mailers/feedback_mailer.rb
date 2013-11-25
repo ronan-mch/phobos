@@ -3,8 +3,8 @@ class FeedbackMailer < ActionMailer::Base
 
 
 
-  def send_feedback(name, email, system, item, comments)
-    mail(:from => name, :reply_to => email, :subject => "Feedback vedr. #{system} post #{item}", :body => comments)
+  def send_feedback(email_with_name, system, item, comments)
+    mail(:from => email_with_name, :subject => "Feedback vedr. #{system} post #{item}", :body => comments)
   end
 
 end
