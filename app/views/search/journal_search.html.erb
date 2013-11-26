@@ -9,6 +9,7 @@
                     <%= hidden_field_tag "rft.title", "", {:class => "rft_title"} %>
                     <%= hidden_field_tag "rft.object_id", "", {:class => "rft_object_id"} %>
                     <%= hidden_field_tag "rft.issn", "" %>
+                    <%= hidden_field_tag "umlaut.locale", I18n.locale %>
                     <%-
                         # specific article fields from prior form may be present, if the user is now choosing from
                         # amongst serveral possible title matches. Preserve them on refinement of search terms.
