@@ -76,6 +76,7 @@ en:
   electronic_version: Electronic Version
   send_to_phone: Send to phone
   email: Email
+  feedback_display_text: Feedback
   more_info: More info
   request: Request
   edition_info: Edition information
@@ -124,6 +125,9 @@ en:
   kb: The Royal Library
   search_in_rex: Search in REX
   search_in_bibliotek: Search in Bibliotek.dk
+  help_link_title: Help
+  help_links_title: Help
+  feedback_title: Feedback
   umlaut:
     footer:
       help_link: http://www.kb.dk/en/REX/sider

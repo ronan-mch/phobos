@@ -74,6 +74,7 @@ da:
   electronic_version: Elektronisk udgave
   send_to_phone: Send til mobil
   email: Email
+  feedback_display_text: Fejlmeld
   more_info: Mere info
   request: Anmode
   edition_info: Udgave information
@@ -121,6 +122,9 @@ da:
   kb: Det Kongelige Bibliotek
   search_in_rex: Søg i REX
   search_in_bibliotek: Søg i Bibliotek.dk
+  help_link_title: Hjælp
+  help_links_title: Hjælp
+  feedback_title: Fejlmeld
   umlaut:
     footer:
       help_link: http://www.kb.dk/da/REX/sider?codekitCB=401828938.835484

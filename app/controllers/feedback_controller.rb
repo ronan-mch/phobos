@@ -1,4 +1,6 @@
 class FeedbackController < ApplicationController
+  @generate_url_with_host = false
+
   # To change this template use File | Settings | File Templates.
   def show
 

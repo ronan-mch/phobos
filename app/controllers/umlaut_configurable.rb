@@ -290,7 +290,7 @@ module UmlautConfigurable
         html_area :main
         visibility :responses_exist
       end
-      
+
 =begin
     KB - we don't want this
       add_resolve_sections! do
@@ -327,9 +327,9 @@ module UmlautConfigurable
         html_area :sidebar
         bg_update false
         partial "help"
-        show_heading false
+        show_heading true
         show_spinner false
-        visibility :responses_exist 
+        visibility true
       end
       
       add_resolve_sections! do

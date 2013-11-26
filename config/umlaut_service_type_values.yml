@@ -13,8 +13,8 @@ document_delivery:
 
 help:
   id: 4
-  display_name: Help Link
-  display_name_plural: Help Links
+  display_name: help_link_title
+  display_name_plural: help_links_title
 
 # Not currently used
 web_link:

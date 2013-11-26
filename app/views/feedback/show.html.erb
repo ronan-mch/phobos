@@ -1,8 +1,11 @@
+
 <div class="container">
 
+  <% if (params[:system]) && (params[:system].include? 'primo') %>
   <div class="form-group">
     <a class="btn btn-primary col-md-offset-4" target="_blank" href="<%= t '.ebook_download_help_link' %>"><%= t '.ebook_download_help' %></a>
   </div>
+  <% end %>
   <legend><%= t '.title' %></legend>
   <span class="help-block">
     <%= t '.help_text' %>
