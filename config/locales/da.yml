@@ -24,7 +24,7 @@ da:
   doi_or_pubmed_id: DOI eller Pubmed identifier
   search:
     journal_search:
-      system_change_notice: "Velkommen til det nye E-Tidsskrifter"
+      system_change_notice: "Velkommen til den nye E-tidsskriftliste. Den har fået nyt udseende, der giver en bedre visning på mobil, tablet og computer – og fungerer bedre sammen med det øvrige REX. Vi håber, du sætter pris på ændringerne – ellers kan du vælge den gamle version i linket nederst på siden."
   having_trouble: Problemer?
   having_trouble_message: Prøv at indtaste mindre data. Hvis en værdi er forkert, kunne det sagtens skabe problemer.
   date:
