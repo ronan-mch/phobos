@@ -65,6 +65,13 @@ class SearchController < UmlautController
   # can be 'begins', 'exact', or 'contains'. Other
   # form params should be OpenURL, generally
   def journal_search
+    # KB - since we only allow one search box on the frontend
+    # we need to catch and rework the search before passing it
+    # on to Umlaut default search code.
+    process_search_type
+
+    # End KB block
+
     @batch_size = batch_size
     @start_result_num = (page * batch_size) - (batch_size - 1)
     @search_context_object = context_object_from_params
@@ -106,6 +113,20 @@ class SearchController < UmlautController
       (params["umlaut.title_search_type"] == "begins") ?
         t(:begins_with) : t(:contains)
     @page_title += " '" + params['rft.jtitle'] + "':"
+  end
+
+
+  # KB intercept the search and move variables around to work with Umlaut code
+  def process_search_type
+    Rails.logger.debug "search type is #{params['umlaut.search_type']}"
+    Rails.logger.debug "search val is #{params['search_val']}"
+
+    if params['umlaut.search_type'] == 'issn'
+      params['rft.issn'] = params['search_val']
+    else
+      params['rft.jtitle'] = params['search_val']
+      params['umlaut.title_search_type'] = params['umlaut.search_type']
+    end
   end
 
   # Used for browse-by-letter
