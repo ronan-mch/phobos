@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class=" row">
-            <div class="col-xs-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2">
                 <%= form_tag({:controller=>'search', :action=>'journal_search'}, {:method=>'get', :name=>'OpenURL', :id=>'OpenURL', :role =>'form', :class => "form-very-inline"})  %>
 
                     <%= hidden_field_tag "rfr_id", "info:sid/sfxit.com:citation" %>
@@ -20,35 +20,33 @@
                     <% end %>
 
                     <div class="form-group">
-                      <div class="row">
 
-                        <div class="col-xs-12">
+
                           <div class="input-group input-group-lg">
 
                             <%= text_field :journal, :title, {:name=>'search_val', :value=>params['rft.jtitle'], :class=>"title_search form-control", :placeholder=>"Title", :autocomplete => "on"} %>
 
-                          <div class="input-group-btn">
-                            <button type="button" id="js_search_type_button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                              <%= t(:contains).titleize %>
-                              <span class="caret"></span>
-                            </button>
-                            <ul id="js_search_type" class="dropdown-menu pull-right">
-                              <li id="contains"><a href="#"><%= t(:contains).titleize %></a></li>
-                              <li id="begins_with"><a href="#"><%= t(:begins_with) %></a></li>
-                              <li id="exact_match"><a  href="#"><%= t(:exact_match) %></a></li>
-                              <li class="divider"></li>
-                              <li id="issn"><a href="#">ISSN</a></li>
-                            </ul>
-                          </div>
-                          <span class="input-group-btn">
-                            <%= button_tag "Search", {:name=>"Generate_OpenURL2", :class => "btn btn-primary"}  do content_tag(:span, '', {:class => "glyphicon glyphicon-search "}) end %>
-                          </span>
-                            </div>
-                        </div>
+                              <div class="input-group-btn">
+                                <button type="button" id="js_search_type_button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                  <%= t(:contains).titleize %>
+                                  <span class="caret"></span>
+                                </button>
+                                <ul id="js_search_type" class="dropdown-menu pull-right">
+                                  <li id="contains"><a href="#"><%= t(:contains).titleize %></a></li>
+                                  <li id="begins_with"><a href="#"><%= t(:begins_with) %></a></li>
+                                  <li id="exact_match"><a  href="#"><%= t(:exact_match) %></a></li>
+                                  <li class="divider"></li>
+                                  <li id="issn"><a href="#">ISSN</a></li>
+                                </ul>
+                              </div>
+                              <span class="input-group-btn">
+                                <%= button_tag "Search", {:name=>"Generate_OpenURL2", :class => "btn btn-primary"}  do content_tag(:span, '', {:class => "glyphicon glyphicon-search "}) end %>
+                              </span>
+                                </div>
 
 
 
-                        </div>
+
 
                       </div>
                     </div>

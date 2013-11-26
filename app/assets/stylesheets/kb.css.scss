@@ -82,7 +82,15 @@ header .navbar{
    background:             lighten($btn-primary-bg, 10%);
    color:                  $neutral;
    margin-bottom: $jumbotron-padding;
+
+   button[type="button"]{
+     border-radius: 0px!important;
+
+   }
  }
+
+
+
 
 // Resultat list
 // ------------------------------------
