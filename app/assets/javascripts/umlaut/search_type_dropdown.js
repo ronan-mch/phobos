@@ -5,7 +5,7 @@ $(document).ready(function(){
          * update search_type val with key */
         var name = $(this).attr('id');
         var descr = $(this).children('a').text();
-        $('#js_search_type_button').text(descr)
-        $('input#umlaut\\.search_type').val(name)
+        $('#js_search_type_button').html(descr + " <span class='caret'></span>");
+        $('input#umlaut\\.search_type').val(name);
     })
 });
