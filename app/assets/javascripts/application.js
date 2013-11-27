@@ -21,4 +21,6 @@
 //= require umlaut/placeholder_compatibility
 //= require umlaut/ajax_windows
 //= require umlaut/new_system_notice
+//= require umlaut/search_autocomplete
+//= require typeahead.min
 //= require_tree
