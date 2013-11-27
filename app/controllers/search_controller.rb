@@ -121,7 +121,10 @@ class SearchController < UmlautController
     Rails.logger.debug "search type is #{params['umlaut.search_type']}"
     Rails.logger.debug "search val is #{params['search_val']}"
 
-    if params['umlaut.search_type'] == 'issn'
+    # if it's an issn search type or our search val is a valid issn
+    # assume it's an issn we're looking for
+    # if not, it's one of the title type searches
+    if (params['umlaut.search_type'] == 'issn') || (params['search_val']  =~ /\d{4}(-)?\d{3}(\d|X)/)
       params['rft.issn'] = params['search_val']
     else
       params['rft.jtitle'] = params['search_val']
