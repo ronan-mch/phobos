@@ -65,7 +65,7 @@ default:
         type: ExternalSearch
         disabled: false
         priority: c
-        url: http://bibliotek.dk/da/search/work/%{title}?sort=date_descending&qe[year.op][0]=year_eq&page_id=bibdk_frontpage#content
+        url: http://bibliotek.dk/da/search/work/%{issn/isbn}?sort=date_descending&qe[year.op][0]=year_eq&page_id=bibdk_frontpage#content
         display_name: Bibliotek.dk
         display_text: search_in_bibliotek
 
