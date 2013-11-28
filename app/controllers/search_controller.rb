@@ -157,10 +157,6 @@ class SearchController < UmlautController
    # Don't search on blank query.
    query = params['rft.jtitle']
    search_type = params["umlaut.title_search_type"] || "contains"
-   #KB - if we only have one token, use begins search type
-   unless query.split.length > 1
-     params["umlaut.title_search_type"] = "begins"
-   end
    unless ( query.blank? )
       (context_objects, total_count) = find_by_title
       @titles = context_objects.collect do |co|
