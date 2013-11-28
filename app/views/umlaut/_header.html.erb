@@ -41,7 +41,7 @@
   <div class="container">
       <ol class="breadcrumb">
         <li><a href="http://rex.kb.dk">Rex</a></li>
-        <li><a href="<%= root_url %>">E-tidsskrifter</a></li>
+        <li><a href="<%= root_url %>"><%= t :system_name %></a></li>
         <%# Only show item in breadcrumb for item view %>
         <% if params[:controller] == 'resolve'%>
             <% if @user_request.referent.type_of_thing == 'journal' && !@page_title.nil? %>
