@@ -23,6 +23,10 @@ jQuery(document).ready(function($) {
     function updateUrl(url) {
         searchVal = $('input.title_search').val();
         if (searchVal) {
+            //if there's only one word, do a begins with search
+            if (searchVal.split(" ").length == 1) {
+                url = url.replace(/umlaut\.search_type=.+&/, 'umlaut.title_search_type=begins&');
+            }
             return url + searchVal;
         }
         return "";
