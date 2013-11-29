@@ -267,4 +267,10 @@ module ResolveHelper
       "#{start} – #{finish}:"
 
   end
+
+
+  # KB hack to translate book section properly
+  def get_format(format)
+    format == "book section" ? "book_section" : format
+  end
 end

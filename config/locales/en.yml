@@ -61,6 +61,7 @@ en:
   article: article
   journal: journal
   book: book
+  book_section: Book Section
   published_in: Published in
   last_name: Last Name
   first_name: First Name

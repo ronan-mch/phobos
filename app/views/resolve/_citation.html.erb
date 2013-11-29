@@ -3,7 +3,9 @@ cite = @user_request.referent.to_citation
 @page_title = cite[:title] %>
 
 <% if @user_request.referent.type_of_thing.present? %>
-  <span class="label label-primary"><%=t(@user_request.referent.type_of_thing).titlecase %></span>
+  <span class="label label-primary">
+    <%= t(get_format(@user_request.referent.type_of_thing), :default => @user_request.referent.type_of_thing).titlecase %>
+  </span>
 <% end %>
 
 <h2 class="title"><%= cite[:title] %></h2>
