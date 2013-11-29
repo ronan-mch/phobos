@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'nokogiri'
 module SearchMethods
   module Sfx4
@@ -39,6 +40,14 @@ module SearchMethods
       az_title_klass.connection
     end
 
+    # KB query sanitising - remove stopwords and bad characters from query
+    def replace_problem_tokens(term)
+      term.gsub!('æ', 'a1')
+      term.gsub!('å', 'a2')
+
+      term
+    end
+
     # Needs to return ContextObjects
     def find_by_title
       connection = sfx4_db_connection
@@ -53,6 +62,7 @@ module SearchMethods
                                # and more importantly give us decent results.
                                query = terms.collect do |term|
                                  #don't include of or for in this as they cause problems - KB
+                                 term = replace_problem_tokens(term)
                                  "+" + connection.quote_string(term) + "*" unless ['of', 'for'].include? term.downcase
                                end.join(" ")
                                Rails.logger.debug "query is #{query}"
