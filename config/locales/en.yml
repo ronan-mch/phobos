@@ -27,7 +27,7 @@ en:
   doi_or_pubmed_id: 'DOI or Pubmed Identifier:'
   search:
     journal_search:
-      system_change_notice: "Welcome to the new E-Journals list. We have given it a new design that will look better on mobile, tablet and computer and matches REX's styling. We hope that you like our changes, otherwise you can choose to go back to the old version via the link at the bottom of the page."
+      system_change_notice: "Welcome to the new E-Journals list. We have given it a new design that will look better on mobile, tablet and computer and matches REX's styling. We hope that you like our changes, otherwise you can find a link to the previous version under REX at the bottom of the page."
   having_trouble: Having Trouble?
   having_trouble_message: Try entering less information about your article. If one piece of information is wrong, it could be causing the problem.
   date:
@@ -68,8 +68,8 @@ en:
   initials: Initials
   online_access: Online Access
   not_available: Not Available
-  request_from_interlibrary: Request a copy from Inter-Library Loan
-  more_like_this: More like this
+  request_from_interlibrary: If you don't have remote access privileges, you may request a copy
+  more_like_this: Articles recommended with this
   related_items: Related Items
   see_also: See also
   export_tools: Export tools
@@ -125,17 +125,17 @@ en:
   to_report_a_problem: For more help, or to report a problem, please feel free to
   contact_us_for_help:
   kb: The Royal Library
-  search_in_rex: Search in REX
-  search_in_bibliotek: Search in Bibliotek.dk
+  search_in_rex: Search title in REX
+  search_in_bibliotek: Search title in Bibliotek.dk
   help_link_title: Help
   help_links_title: Help
   feedback_title: Feedback
   umlaut:
     footer:
-      help_link: http://www.kb.dk/en/REX/sider
-      help_text: Help / FAQ
+      help_link: http://www.kb.dk/en/kub/publikum/serviceydelser/fjernadgang/fjernadgangsservice.html
+      help_text: More about remote access
       classic_link: http://www.kb.dk/en/materialer/e-ressourcer/tidsskrifter/index.html?
-      classic_text: E-Journals Classic
+      classic_text: E-Journals (previous version)
       other_libraries_link: http://www.kb.dk/da/REX/sider/biblioteker.html
       other_libraries_text: Other libraries in REX
       suggest_link: http://www.kb.dk/en/kub/service/sporgbib/forslag.html
