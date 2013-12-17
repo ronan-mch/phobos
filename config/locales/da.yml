@@ -1,33 +1,33 @@
 da:
-  hello: Hej med dig!
+  hello: Hej!
   language: Language
   en: English
   da: Dansk
   system_name: E-tidskrifter
-  Journals: E-Tidsskrifter
+  Journals: E-tidsskrifter
   other: Andet
   journals_subheader: Leder du efter en bestemt tidsskrift eller artikel?
   search_instructions: Indsæt tidsskriftets titel eller ISSN nummeret. Hvis du har begge dele, brug ISSN nummeret.
-  journal_title: Tidsskrift navn
+  journal_title: Tidsskriftsnavn
   contains: indeholder
   begins_with: starter med
-  exact_match: Lige præcis
+  exact_match: lige præcis
   journal_titles_that: Tidsskrifter der
   no_journal_titles_found_that: Kunne ikke finde tidsskrifter med titler der
   search_optional_info: 'Ekstra information - Indtast så meget som du kender af følgende:'
-  volume: volumen
+  volume: volume
   vol: vol
-  iss: nr
+  iss: hf
   p: s
   date_label: dato
-  issue: nummer
-  start_page: 'Start side:'
+  issue: hæfte
+  start_page: 'Startside:'
   doi_or_pubmed_id: DOI eller Pubmed identifier
   search:
     journal_search:
-      system_change_notice: "Velkommen til den nye E-tidsskriftliste. Den har fået nyt udseende, der giver en bedre visning på mobil, tablet og computer – og fungerer bedre sammen med det øvrige REX. Vi håber, du sætter pris på ændringerne – ellers kan du vælge den gamle version i linket nederst på siden."
+      system_change_notice: "Velkommen til den nye E-tidsskriftliste. Den har fået nyt udseende, der giver en bedre visning på mobil, tablet og computer – og fungerer bedre sammen med det øvrige REX. Vi håber, du sætter pris på ændringerne – ellers finder du link til den gamle version under REX nederst på siden."
   having_trouble: Problemer?
-  having_trouble_message: Prøv at indtaste mindre data. Hvis en værdi er forkert, kunne det sagtens skabe problemer.
+  having_trouble_message: Prøv at indtaste færre oplysninger. Hvis en værdi er forkert, kan det sagtens skabe problemer.
   date:
     month_names: [~, januar, februar, marts, april, maj, juni, juli, august, september, oktober, november, december]
     abbr_month_names: [~, jan, feb, mar, apr, maj, jun, jul, aug, sep, okt, nov, dec]
@@ -36,69 +36,69 @@ da:
       month: Måned
       day: Dag
       year: År
-  browse_by_jtitle:  'Browse efter tidsskrift navn:'
+  browse_by_jtitle:  'Find dit tidsskrifts titel:'
   more_search_options: Flere søgemuligheder
   showing_results: Her vises fra %{start} til %{until} af %{total}
   note: 'Bemærk:'
-  other_titles_might: Andre poster kunne muligvis passe med din søgekriterier
+  other_titles_might: Resultatet kan indeholde træf på alternativ titel
   previous: forrige side
   next: næste side
-  chapter_title: Chapter/Part Title
-  article_title: Article Title
-  book_title: Book Title
+  chapter_title: Titel på del/kapitel
+  article_title: Artiklens titel
+  book_title: Bogens titel
   proceeding_title: Proceeding Title
   conference_name: Conference Name
-  report_title: Report Title
-  report: Report
+  report_title: Titel på rapport
+  report: rapport
   book: bog
   book_section: kapitel
   author: Forfatter
   publisher: Udgiver
   published: Udgivet
   page: side
-  title: Titel
-  part: Part
+  title: titel
+  part: del
   article: artikel
   journal: tidsskrift
   published_in: Udgivet i
   last_name: Efternavn
   first_name: Fornavn
   initials: Initialer
-  online_access: Online Adgang
+  online_access: Online adgang
   not_available: Ikke tilgængelig
-  request_from_interlibrary: Lån fra biblioteket
-  more_like_this: Lignende værker
-  related_items: Relaterede poster
-  see_also: Se også
-  export_tools: Export værktøjer
+  request_from_interlibrary: Bestil en kopi, hvis du ikke har fjernadgang
+  more_like_this: Anbefalinger - lignende artikler
+  related_items: Relaterede materialer
+  see_also: Prøv også
+  export_tools: Eksporteringsværktøjer
   excerpt_prompt: En begrænset visning som muligvis indeholder indeholdsfortegnelse, indeks, og andre sider.
-  copies_in_library: Eksemplarer på biblioteket
+  copies_in_library: Fysisike eksemplarer på biblioteket
   electronic_version: Elektronisk udgave
   send_to_phone: Send til mobil
   email: Email
   feedback_display_text: Fejlmeld
-  more_info: Mere info
-  request: Anmode
-  edition_info: Udgave information
-  maybe_alt_edition: May be alternate edition
-  ulrichs_link_name: Oplysning om tidsskriftet
-  worldcat_link_name: Find på andre biblioteker
+  more_info: Flere oplysninger
+  request: bestil
+  edition_info: Udgave-information
+  maybe_alt_edition: Kan være en anden udgave
+  ulrichs_link_name: Oplysninger om tidsskriftet
+  worldcat_link_name: Søg materialet i Worldcat
   from: fra
   first: tidligste
   latest: seneste
-  Abstract: Abstrakt
-  some_volumes_of: Nogle volumer af
-  search_inside_some_vols: Søg i nogle volumer
+  Abstract: Abstract
+  some_volumes_of: Nogle årgange af
+  search_inside_some_vols: Søg i nogle årgange
   search_inside_this: Søg i denne
   via: ved
   search_inside_progress_message: Søger efter værktøjer for at søge i
   loading: loading
   close: luk
-  email_export_header: Email titlen og lokationer
+  email_export_header: Email titel og link
   enter_your_email: 'Indtast din emailaddresse:'
   send: 'Send!'
   back: tilbage
-  txt_export_header: Send titlen og lokation af posten til din mobil
+  txt_export_header: Send titel og link til din mobil
   enter_your_number: 'Indtast dit telefonnummer'
   select_provider: 'Vælg dit netværk:'
   choose_item_to_send: 'Vælg posten du gerne vil sende:'
@@ -113,7 +113,7 @@ da:
   using_services_from: Med tjenester fra
   and_others: og andre
   service_errors_title: 'På grund af fejl kan der muligvis mangler noget indhold:'
-  services_missing: 'Manglende servicer:'
+  services_missing: 'Manglende tjenester:'
   technical_error_info: Oplysning om den tekniske fejl
   error_header: Beklager, der er opstået en fejl
   try_one_of_options: 'Prøv en af de følgende muligheder:'
@@ -122,17 +122,17 @@ da:
   try_backup_resolver: Prøv din forespørgsel igen mod vores backup resolver.
   to_report_a_problem: Hvis du vil have mere hjælp eller meld en fejl, må du gerne
   kb: Det Kongelige Bibliotek
-  search_in_rex: Søg i REX
-  search_in_bibliotek: Søg i Bibliotek.dk
+  search_in_rex: Søg materialet i REX
+  search_in_bibliotek: Søg materialet i Bibliotek.dk
   help_link_title: Hjælp
   help_links_title: Hjælp
   feedback_title: Fejlmeld
   umlaut:
     footer:
-      help_link: http://www.kb.dk/da/REX/sider?codekitCB=401828938.835484
-      help_text: Hjælp / FAQ
+      help_link: http://www.kb.dk/da/kub/publikum/serviceydelser/fjernadgang/fjernadgangsservice.html
+      help_text: Læs om fjernadgang
       classic_link: http://www.kb.dk/da/materialer/e-ressourcer/tidsskrifter/index.html?subject=&q=&first=a&sso=true
-      classic_text: E-Tidsskrifter Classic
+      classic_text: E-Tidsskrifter (tidligere version)
       other_libraries_link: http://www.kb.dk/da/REX/sider/biblioteker.html
       other_libraries_text: Biblioteker i REX-samarbejdet
       suggest_link: http://www.kb.dk/da/kub/service/sporgbib/forslag.html
@@ -166,7 +166,7 @@ da:
       ebook_download_help: "Klik her for hjælp til download af e-bøger"
       ebook_download_help_link: "http://libguides.culis.kb.dk/content.php?pid=328476&sid=2761406"
       title: "Fejlmeld online adgang"
-      help_text: "Hvis du oplever, at noget ikke virker, ser vi gerne at du fortæller os det, så vi kan rette op på fejlen. Benyt følgende formular, og jo mere præcist  du kan beskrive hvad du oplever, jo bedre mulighed har vi for at hjælpe dig."
+      help_text: "Hvis du oplever, at noget ikke virker, ser vi gerne at du fortæller os det, så vi kan rette op på fejlen. Benyt følgende formular. Jo mere præcist du kan beskrive hvad du oplever, jo bedre mulighed har vi for at hjælpe dig og andre."
       send: "Send kommentar"
     send_message:
       message_sent: "Din besked er blevet sendt. Tak for din hjælp."
