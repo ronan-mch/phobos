@@ -1,4 +1,21 @@
 	<ul class="response_list umlaut-help-list">
-      <li><%= link_to t(:feedback_title), {:controller=>'feedback', :action => 'show', :id => current_permalink_url, :system => 'A-Z'}, 'target'=>"_blank" %></li>
+      <li><a href="#" data-toggle="modal" data-target="#js_feedback_dialog"><%= t(:feedback_title) %></a></li>
 	</ul>
+    <!-- Modal -->
+    <div class="modal fade" id="js_feedback_dialog" tabindex="-1" role="dialog" aria-labelledby="<%= t 'feedback.show.title' %>" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel"><%= t 'feedback.show.title' %></h4>
+          </div>
+          <div class="modal-body">
+            <%= render 'feedback/show' %>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 

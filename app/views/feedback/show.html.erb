@@ -1,12 +1,15 @@
 
 <div class="container">
-
+ <div class="btn-toolbar">
   <% if (params[:system]) && (params[:system].include? 'primo') %>
-  <div class="form-group">
     <a class="btn btn-primary col-md-offset-4" target="_blank" href="<%= t '.ebook_download_help_link' %>"><%= t '.ebook_download_help' %></a>
-  </div>
   <% end %>
-  <legend><%= t '.title' %></legend>
+
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#help-form">
+    <%= t '.title' %>
+  </button>
+ </div>
+  <div id="help-form" class="collapse">
   <span class="help-block">
     <%= t '.help_text' %>
   </span>
@@ -39,4 +42,5 @@
     </div>
   </div>
 </form>
+</div>
 </div>
