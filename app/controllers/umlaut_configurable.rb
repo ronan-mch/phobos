@@ -109,7 +109,7 @@ module UmlautConfigurable
       #
       # "umlaut.skip_resolve_menu" paramter can also be passed in per-request, with
       # 'true' or shortname of a service type. 
-      skip_resolve_menu false
+      skip_resolve_menu true
       
       # How many seconds between updates of the background updater for background
       # services?
